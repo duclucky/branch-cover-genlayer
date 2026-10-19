@@ -1,0 +1,9 @@
+{
+  "name": "branch-cover-genlayer",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "A reusable GenLayer contingent commitment book with invariant-safe collateral release.",
+  "scripts": {"check": "node scripts/check.mjs"},
+  "dependencies": {"genlayer-js": "2.0.0-rc.1", "viem": "2.56.5"}
+}
