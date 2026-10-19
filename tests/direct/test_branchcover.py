@@ -247,6 +247,26 @@ def test_terminal_duplicate_choice_recovery_and_close_cannot_double_credit(setup
         with pytest.raises(Exception):c.withdraw_credit("book",1)
         assert snap(c)==before
 
+def test_funder_only_topup_duplicate_book_and_ratification_idempotency(setup):
+    c,vm,o,a,b=setup;before=snap(c);vm.sender=a;vm.value=GEN
+    try:
+        with pytest.raises(Exception,match="funder required"):c.top_up("book")
+    finally:vm.value=0
+    assert snap(c)==before
+    with pytest.raises(Exception,match="existing book ID"):create(c,vm,o,a,b)
+    assert snap(c)==before
+    fund(c,vm,o);digest=data(c.get_book("book"))["definition_digest"]
+    vm.sender=a;c.ratify("book",digest);before=snap(c);c.ratify("book",digest);assert snap(c)==before
+    vm.sender=b;c.ratify("book",digest);before=snap(c);c.ratify("book",digest);assert snap(c)==before
+
+def test_prune_duplicate_and_removed_branch_cannot_change_frozen_terms(setup):
+    c,vm,o,a,b=compiled(setup);terms=[c.get_claim("book","C0"),c.get_claim("book","C1")]
+    matrix=c.get_matrix("book");vm.sender=o;c.prune_branches("book",3);before=snap(c)
+    c.prune_branches("book",3);assert snap(c)==before
+    with pytest.raises(Exception,match="removed"):c.choose_branch("book","B2")
+    assert snap(c)==before and c.get_matrix("book")==matrix
+    assert [c.get_claim("book","C0"),c.get_claim("book","C1")]==terms
+
 @pytest.mark.parametrize("source",[b"",CONTEXT+b"x"],ids=["empty","changed-version"])
 def test_unavailable_or_version_mismatched_source_never_calls_model_or_settles(source,setup):
     c,vm,o,a,b=ready(setup);vm.clear_mocks();vm.mock_web(r".*w3\.org.*",{"status":200,"body":source})
