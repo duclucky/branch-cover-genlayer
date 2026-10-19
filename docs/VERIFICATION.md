@@ -18,9 +18,10 @@ unchanged. `vm.run_validator()` explicitly exercises independent semantic replay
 direct leader execution alone is never described as network consensus.
 
 The initial test-first stub failed with `UserError: not implemented`; the saved
-RED record is a setup failure, not an assertion failure. The implementation then
-passed 71 direct/metadata/adversarial cases. Later changes must refresh this count
-from actual `npm run check` output. Live proofs remain pending until recorded.
+RED record is a setup failure, not an assertion failure. The initial implementation
+then passed 71 direct/metadata/adversarial cases; two additional safety cases
+bring the current Python total to 73. Seven script cases include an actual SDK
+calldata roundtrip regression. Actual output is in `evidence/local/check-latest.txt`.
 
 Canonical evidence is the exact onchain definition and the two beneficiaries'
 authenticated ratifications. A hash alone cannot authorize ratification. W3C
@@ -35,9 +36,21 @@ consensus proof; the earlier unsigned spike cannot substitute for that proof.
 
 Studio Dev's exact-source schema recognizes all 20 methods and its unsigned
 constructor returns SUCCESS (see `evidence/studio-dev/runtime-probe.json`).
-This remains unsigned compatibility evidence. The role preflight found only
-one distinct configured authorized account across all three required roles.
-No deployment, funding or application-value transaction has been sent for this
-project. Live lifecycle execution, public repository/CI, Portal packaging and
-the final objective grader remain pending. New beneficiary key creation and
-funding require the owner's explicit authorization.
+This remains unsigned compatibility evidence. The historical role preflight
+found only one distinct configured account. The owner subsequently approved two
+new demo EOAs and exactly 1 GEN funding per EOA. Ignored local configuration
+stores the keys; sanitized role/funding journals prove two successful transfers.
+The second transfer's first balance check did not pass; the saved hash and fresh
+balances established success, with no repeated funding broadcast.
+
+Deployment is FINALIZED / Result: SUCCESS, exact source/schema matched. The
+Explorer transaction and address pages were opened in the in-app browser.
+The bounded caller-spoof smoke preserved the actual signer/origin and rejected
+the operation with unchanged zero accounting. Live lifecycle execution,
+repository/CI, Portal packaging and the final objective gate are still pending.
+
+The first unsigned create-book fee simulation rejected raw strings supplied to
+Address-typed arguments. A real SDK encode/decode regression failed, then passed
+after adding `CalldataAddress` conversion at the script boundary for create_book
+and get_credit. The contract was not changed. Quotes, signed calls and reads now
+share that adapter. Two type/validation script tests prove the wire distinction.

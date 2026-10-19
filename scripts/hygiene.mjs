@@ -4,7 +4,7 @@ import {spawnSync} from 'node:child_process';
 import {resolve} from 'node:path';
 import {root,configuration,SafeError,safeError} from './network.mjs';
 const git=args=>{const r=spawnSync('git',args,{cwd:root,encoding:'utf8'});if(r.status!==0)throw new SafeError('GitHygieneCommandFailed');return r.stdout.trim();};
-const allowed=p=>/^(?:\.github\/workflows\/check\.yml|\.env\.example|\.gitattributes|\.gitignore|README\.md|LICENSE|package(?:-lock)?\.json|requirements(?:-dev\.txt|\.lock)|gltest\.config\.yaml|contracts\/branch_cover\.py|tests\/(?:__init__\.py|conftest\.py|direct\/(?:__init__\.py|test_branchcover\.py)|fixtures\/odrl-context\.html)|scripts\/[a-z0-9_-]+\.(?:mjs|py)|docs\/(?:[A-Z][A-Z0-9_-]*\.md|evidence\/(?:local|studio-dev)\/[a-z0-9_-]+\.(?:json|txt|png)))$/.test(p);
+const allowed=p=>/^(?:\.github\/workflows\/check\.yml|\.env\.example|\.gitattributes|\.gitignore|README\.md|LICENSE|package(?:-lock)?\.json|requirements(?:-dev\.txt|\.lock)|gltest\.config\.yaml|contracts\/branch_cover\.py|tests\/(?:__init__\.py|conftest\.py|direct\/(?:__init__\.py|test_branchcover\.py)|fixtures\/odrl-context\.html)|scripts\/[a-z0-9_-]+(?:\.test)?\.(?:mjs|py)|docs\/(?:[A-Z][A-Z0-9_-]*\.md|evidence\/(?:local|studio-dev)\/[a-z0-9_-]+\.(?:json|txt|png)))$/.test(p);
 async function main(){
  if(resolve(git(['rev-parse','--show-toplevel']))!==root)throw new SafeError('WrongProjectGitRoot');
  const tracked=git(['ls-files']).split('\n').filter(Boolean);

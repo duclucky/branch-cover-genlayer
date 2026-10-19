@@ -3,6 +3,7 @@ import {readFile} from 'node:fs/promises';
 import {abi,createFeesDistribution} from 'genlayer-js';
 import {sourcePath,rpc,client,SafeError} from './network.mjs';
 import {retryRead} from './read-retry.mjs';
+import {contractArgs} from './contract-args.mjs';
 export function rpcFees(quote){return JSON.parse(JSON.stringify({distribution:quote.distribution,messageAllocations:quote.messageAllocations??[],feeValue:quote.feeValue},(_key,value)=>typeof value==='bigint'?value.toString():value));}
 async function measureDeployment(account){
  const baseline=await client(account).estimateTransactionFees();
@@ -17,7 +18,7 @@ async function measureDeployment(account){
 }
 async function measureWrite(account,address,functionName,args,value=0n){
  const baseline=await client(account).estimateTransactionFees();
- const data=abi.transactions.serialize([abi.calldata.encode(abi.calldata.makeCalldataObject(functionName,args)),false]);
+ const data=abi.transactions.serialize([abi.calldata.encode(abi.calldata.makeCalldataObject(functionName,contractArgs(functionName,args))),false]);
  // Studio's unsigned write simulation omits its clock unless explicitly supplied.
  // This affects fee simulation only; no sim_config is sent with signed writes.
  const estimate=await rpc('sim_estimateTransactionFees',[{type:'write',from:account.address,to:address,data,value:'0x'+value.toString(16),fees:rpcFees(baseline),sim_config:{genvm_datetime:new Date().toISOString()}}]);

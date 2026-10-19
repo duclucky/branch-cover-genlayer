@@ -11,6 +11,7 @@ import {studioDevnet} from 'genlayer-js/chains';
 import {TransactionHashVariant} from 'genlayer-js/types';
 import {receiptState,address,hash} from './receipt.mjs';
 import {retryRead} from './read-retry.mjs';
+import {contractArgs} from './contract-args.mjs';
 
 export const root=resolve(dirname(fileURLToPath(import.meta.url)),'..');
 export const RPC='https://studio-next.genlayer.com/api';
@@ -28,13 +29,14 @@ console.error=()=>{};
 export function safeError(error){
  const text=String(error?.message??'');
  return {kind:error instanceof SafeError?error.kind:['AbortError','TimeoutError'].includes(error?.name)?error.name:'OperationFailed',errorType:typeof error?.name==='string'&&/^[A-Za-z]{1,64}(?:Error|Exception)$/.test(error.name)?error.name:null,rpcCode:error instanceof SafeError?error.code:null,
+  rpcMethod:typeof error?.rpcMethod==='string'?error.rpcMethod:null,
   markers:{insufficientFunds:/insufficient funds/i.test(text),invalidAddress:/invalid address|Address.*invalid/i.test(text),timeout:/time.*out/i.test(text),nonPayable:/non.payable/i.test(text),...(error instanceof SafeError?error.markers:{})}};
 }
 export async function rpc(method,params=[]){
  const response=await fetch(RPC,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({jsonrpc:'2.0',id:1,method,params}),signal:AbortSignal.timeout(55000)});
  if(!response.ok){const error=new SafeError('RpcHttpFailure',response.status),seconds=Number(response.headers.get('retry-after'));if(response.status===429&&Number.isFinite(seconds)&&seconds>0)error.retryAfterSeconds=seconds;throw error;}
  const result=await response.json();
- if(result.error){const text=JSON.stringify(result.error);throw new SafeError('RpcError',result.error.code,{insufficientFunds:/insufficient funds/i.test(text),feeCap:/MaxPriceExceeded|InsufficientFees|FeeValueMustBeNonZero|BudgetTooLow|0xb4132db3|0x8d53e553|0x632be5a1|0x305e533c/i.test(text),abiMismatch:/selector|decode|ABI|function not found/i.test(text)});}
+ if(result.error){const text=JSON.stringify(result.error);const error=new SafeError('RpcError',result.error.code,{insufficientFunds:/insufficient funds/i.test(text),feeCap:/MaxPriceExceeded|InsufficientFees|FeeValueMustBeNonZero|BudgetTooLow|0xb4132db3|0x8d53e553|0x632be5a1|0x305e533c/i.test(text),abiMismatch:/selector|decode|ABI|function not found/i.test(text),invalidCanonicalTime:/invalid canonical time/.test(text),invalidRoles:/invalid distinct roles/.test(text),wrongCalldataType:/calldata.*type|type.*calldata|expected.*Address/i.test(text),rolledBack:/rolled back|invalid transaction for execution/i.test(text),missingTransaction:/transaction not found/i.test(text)});error.rpcMethod=method;throw error;}
  return result.result;
 }
 export async function verifyNetwork(){
@@ -62,7 +64,7 @@ export async function sponsor(){
  return privateKeyToAccount(key);
 }
 export function client(account){return createClient({chain:{...chain,rpcUrls:{default:{http:[RPC]}}},...account?{account}:{}});}
-export async function read(address,functionName,args=[]){return retryRead(()=>client().readContract({address,functionName,args,transactionHashVariant:TransactionHashVariant.LATEST_FINAL}));}
+export async function read(address,functionName,args=[]){return retryRead(()=>client().readContract({address,functionName,args:contractArgs(functionName,args),transactionHashVariant:TransactionHashVariant.LATEST_FINAL}));}
 export async function balance(account){return BigInt(await retryRead(()=>rpc('eth_getBalance',[account,'latest'])));}
 export async function identity(){
  const source=await readFile(sourcePath,'utf8');

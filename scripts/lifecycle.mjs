@@ -5,6 +5,7 @@ import {receiptState,safeReceipt} from './receipt.mjs';
 import {loadJournal,sendJournal} from './journal.mjs';
 import {quoteWrite} from './fees.mjs';
 import {externalDeliveryProof} from './external-delivery.mjs';
+import {contractArgs} from './contract-args.mjs';
 const GEN=10n**18n;
 const triggers=['The selected branch requires reading records from the private internal archive.','The selected branch requires publishing a report outside the workspace.'];
 const branches=['Read records from the private internal archive only. Do not publish any report outside the workspace.','Publish an already-prepared report outside the workspace. Do not read any records from the private internal archive.','Read records from the private internal archive and publish a report based on those records outside the workspace.'];
@@ -41,10 +42,12 @@ async function main(){
   if(record&&(record.target?.toLowerCase()!==target.toLowerCase()||record.actor?.toLowerCase()!==actor.address.toLowerCase()||record.operation!==functionName||JSON.stringify(record.args)!==JSON.stringify(args)||record.valueGEN!==gen(value)))throw new SafeError('JournalIdentityMismatch');
   if(record?.verified){console.log(JSON.stringify({recovered:true,operation:functionName,hash:record.hash}));return record;}
   if(!record){
+   console.log(JSON.stringify({preparing:key,step:'canonical snapshot'}));
    const before=await snapshot(id,functionName==='create_book',recipient);
+   console.log(JSON.stringify({preparing:key,step:'bounded fee quote'}));
    const fees=success?await quoteWrite(actor,target,functionName,args,value):await client(actor).estimateTransactionFees();
    if(fees.feeValue<=0n||fees.feeValue>=GEN)throw new SafeError('DemoFeeOutsideBound');
-   record=await sendJournal(name,{...network,identity:sourceIdentity,target,operation:functionName,actor:actor.address,args,valueGEN:gen(value),feeDepositGEN:gen(fees.feeValue),expectedSuccess:success,before},()=>client(actor).writeContract({address:target,functionName,args,value,fees}));
+   record=await sendJournal(name,{...network,identity:sourceIdentity,target,operation:functionName,actor:actor.address,args,valueGEN:gen(value),feeDepositGEN:gen(fees.feeValue),expectedSuccess:success,before},()=>client(actor).writeContract({address:target,functionName,args:contractArgs(functionName,args),value,fees}));
   }
   const tx=await outcome(record.hash),state=receiptState(tx);
   const native=await import('./journal.mjs');await native.nativeReceipt(record.hash);
