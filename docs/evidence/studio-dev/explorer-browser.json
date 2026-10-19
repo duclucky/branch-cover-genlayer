@@ -1,0 +1,12 @@
+{
+  "observedAt": "2026-10-19T10:30:03.417Z",
+  "method": "Codex in-app browser read-only UI verification",
+  "addressUrl": "https://explorer-studio-dev.genlayer.com/address/0xf853a3129f39c91489Ce3187f3cbb1497d4d2ac6",
+  "addressHeading": "Contract",
+  "transactionUrl": "https://explorer-studio-dev.genlayer.com/tx/0x5d23777e3e48d3da078cd68b112c316e6a24449becbe1fd9dc5f4316cbb7431a",
+  "transactionHeading": "Transaction Details",
+  "status": "FINALIZED",
+  "executionResult": "SUCCESS",
+  "resultCode": "Return",
+  "source": "Observed transaction Overview / GenVM Execution and address page; balances excluded because UI can lag canonical RPC."
+}

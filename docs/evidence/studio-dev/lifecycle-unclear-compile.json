@@ -1,0 +1,99 @@
+{
+  "network": "Studio Dev",
+  "chainId": 61997,
+  "rpc": "https://studio-next.genlayer.com/api",
+  "explorer": "https://explorer-studio-dev.genlayer.com/transactions/0xeac2836591936f0a5afb2c9226187c442574716c2934e5c179534498fd2aca3c",
+  "identity": {
+    "network": "Studio Dev",
+    "chainId": 61997,
+    "sourceCommit": "23597d29d500c5ea7ce49737429f23b3a8383370",
+    "sourceSha256": "576e16ac2e294ff5382bd4a2766d623f219a1e5f915082ef7cdd713ad68e2f82",
+    "runner": "5jycge4q8k23462jtb0b9fyey1s9qz928sz2nbrd9mg4sxqg2qng",
+    "api": "v0.3.0",
+    "genvm": "v0.6.0-rc5",
+    "sdk": "2.0.0-rc.1"
+  },
+  "target": "0xf853a3129f39c91489Ce3187f3cbb1497d4d2ac6",
+  "operation": "compile_book",
+  "actor": "0xBd733BC56Ec4a55FA25C068B9306b0171335D199",
+  "args": [
+    "archive-unclear-v1"
+  ],
+  "valueGEN": "0",
+  "feeDepositGEN": "0.000380272800010352",
+  "expectedSuccess": true,
+  "before": {
+    "observedAt": "2026-10-19T10:33:32.923Z",
+    "book": {
+      "id": "archive-unclear-v1",
+      "version": "BC_V1",
+      "funder": "0xbd733bc56ec4a55fa25c068b9306b0171335d199",
+      "controller": "0xbd733bc56ec4a55fa25c068b9306b0171335d199",
+      "definition_digest": "d408621eb0518967c18d27dfe0aa967cfd5f429b9de1312bf67d471396201e3f",
+      "review_deadline": 1792406154,
+      "choice_deadline": 1792406454,
+      "phase": "READY",
+      "attempts": 0,
+      "compiled": false,
+      "mask": 7,
+      "mask_records": 0,
+      "selected": "",
+      "received": "2 GEN",
+      "locked": "2 GEN",
+      "credits": "0 GEN",
+      "withdrawn": "0 GEN"
+    },
+    "accounting": {
+      "received": "5 GEN",
+      "locked": "5 GEN",
+      "credits": "0 GEN",
+      "withdrawn": "0 GEN",
+      "invariant": true
+    },
+    "nativeContractGEN": "5"
+  },
+  "preparedAt": "2026-10-19T10:33:43.388Z",
+  "status": "FINALIZED",
+  "hash": "0xeac2836591936f0a5afb2c9226187c442574716c2934e5c179534498fd2aca3c",
+  "after": {
+    "observedAt": "2026-10-19T10:34:32.908Z",
+    "book": {
+      "id": "archive-unclear-v1",
+      "version": "BC_V1",
+      "funder": "0xbd733bc56ec4a55fa25c068b9306b0171335d199",
+      "controller": "0xbd733bc56ec4a55fa25c068b9306b0171335d199",
+      "definition_digest": "d408621eb0518967c18d27dfe0aa967cfd5f429b9de1312bf67d471396201e3f",
+      "review_deadline": 1792406154,
+      "choice_deadline": 1792406454,
+      "phase": "RETRYABLE",
+      "attempts": 1,
+      "compiled": false,
+      "mask": 7,
+      "mask_records": 0,
+      "selected": "",
+      "received": "2 GEN",
+      "locked": "2 GEN",
+      "credits": "0 GEN",
+      "withdrawn": "0 GEN"
+    },
+    "accounting": {
+      "received": "5 GEN",
+      "locked": "5 GEN",
+      "credits": "0 GEN",
+      "withdrawn": "0 GEN",
+      "invariant": true
+    },
+    "nativeContractGEN": "5"
+  },
+  "receipt": {
+    "status": "FINALIZED",
+    "execution": "SUCCESS",
+    "successful": true,
+    "hash": "0xeac2836591936f0a5afb2c9226187c442574716c2934e5c179534498fd2aca3c",
+    "from": "0xbd733bc56ec4a55fa25c068b9306b0171335d199",
+    "to": "0xf853a3129f39c91489ce3187f3cbb1497d4d2ac6"
+  },
+  "executionResult": "SUCCESS",
+  "finalizedObservedAt": "2026-10-19T10:34:34.850Z",
+  "verified": true
+}

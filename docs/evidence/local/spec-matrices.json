@@ -1,0 +1,12 @@
+{
+  "command": "Python specification matrix audit",
+  "rows": {
+    "gates": 14,
+    "safety": 9,
+    "authority": 4,
+    "value": 8,
+    "claims": 8
+  },
+  "emptyDataCells": 0,
+  "passed": true
+}

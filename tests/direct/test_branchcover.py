@@ -170,6 +170,14 @@ def test_real_validator_replay_compares_meaning_not_reason(setup):
     assert vm.run_validator() is False
     assert vm.run_validator(leader_error=RuntimeError("unavailable")) is False
 
+def test_swapped_beneficiaries_with_identical_liability_totals_are_not_equivalent(setup):
+    c,vm,o,a,b=compiled(setup);before=snap(c)
+    module=sys.modules[c.__class__.__module__]
+    swapped=list(BASE[3:]+BASE[:3])
+    assert module._liabilities(swapped,[2*GEN,2*GEN])==module._liabilities(list(BASE),[2*GEN,2*GEN])
+    assert vm.run_validator(leader_result={"stage":"OK","classes":swapped}) is False
+    assert snap(c)==before
+
 @pytest.mark.parametrize("payload",[None,{}, {"stage":"OK","classes":list(BASE[:-1])},{"stage":"OK","classes":["NOT_TRIGGERED"]*6},{"stage":"OK","classes":list(BASE),"payee":"attacker"}])
 def test_shape_valid_malicious_leader_is_rejected(payload,setup):
     c,vm,o,a,b=compiled(setup);before=snap(c)
@@ -346,3 +354,67 @@ def test_all_64_semantic_matrices_all_masks_and_subsets_cover_liability(setup):
                 if mask&(1<<j):assert reserve>=liability[j]
             for sub in range(1,8):
                 if sub&mask==sub:assert 0<=module._required(liability,sub)<=reserve
+
+@pytest.mark.parametrize("case",["duplicate_payee","zero_payee","outside_controller","empty_trigger","empty_branch","zero_face","boolean_face","empty_id"])
+def test_invalid_book_roles_and_terms_cannot_receive_margin(case,setup):
+    c,vm,o,a,b=setup;before=snap(c)
+    changes={"duplicate_payee":{"1":o},"zero_payee":{"1":type(o)("0x"+"0"*40)},"outside_controller":{"3":type(o)("0x"+"9"*40)},"empty_trigger":{"4":" "},"empty_branch":{"8":""},"zero_face":{"6":0},"boolean_face":{"6":True},"empty_id":{}}[case]
+    with pytest.raises(Exception):create(c,vm,o,a,b,book="" if case=="empty_id" else "invalid",**changes)
+    assert snap(c)==before
+    with pytest.raises(Exception,match="absent"):c.get_book("invalid")
+
+@pytest.mark.parametrize("mask",[0,8,-1,True])
+def test_empty_out_of_domain_and_boolean_masks_never_release_value(mask,setup):
+    c,vm,o,a,b=compiled(setup);vm.sender=o;before=snap(c)
+    with pytest.raises(Exception):c.prune_branches("book",mask)
+    assert snap(c)==before and c.get_credit("book",o)=="0 GEN"
+
+@pytest.mark.parametrize("amount",[0,3,True,-1,GEN])
+def test_invalid_gen_withdrawal_amount_cannot_debit_existing_own_credit(amount,setup):
+    c,vm,o,a,b=compiled(setup);vm.sender=o;c.choose_branch("book","B0");vm.sender=a;before=snap(c)
+    with pytest.raises(Exception):c.withdraw_credit("book",amount)
+    assert snap(c)==before and c.get_credit("book",a)=="2 GEN"
+
+@pytest.mark.parametrize("delta",[-1,0,1])
+def test_creation_seven_day_horizon_has_explicit_inclusive_upper_bound(delta,setup):
+    c,vm,o,a,b=setup;before=c.get_accounting()
+    if delta<=0:
+        create(c,vm,o,a,b,book="horizon",value=GEN,**{"12":NOW+7*86400+delta})
+        assert data(c.get_book("horizon"))["choice_deadline"]==NOW+7*86400+delta
+    else:
+        with pytest.raises(Exception,match="deadlines"):create(c,vm,o,a,b,book="horizon",value=GEN,**{"12":NOW+7*86400+delta})
+        assert c.get_accounting()==before
+
+@pytest.mark.parametrize("phase",["RATIFYING","READY"])
+@pytest.mark.parametrize("delta",[-1,0,1])
+def test_fully_funded_uncompiled_recovery_boundaries_keep_all_value_with_actual_payer(phase,delta,setup):
+    c,vm,o,a,b=setup;fund(c,vm,o)
+    if phase=="READY":assent(c,vm,a,b)
+    assert data(c.get_book("book"))["phase"]==phase
+    clock(vm,REVIEW+delta);vm.sender=b;before=snap(c)
+    if delta<0:
+        with pytest.raises(Exception,match="not expired"):c.recover("book")
+        assert snap(c)==before
+    else:
+        c.recover("book");assert c.get_credit("book",o)=="4 GEN"
+        assert c.get_credit("book",a)==c.get_credit("book",b)=="0 GEN"
+        before=snap(c)
+        with pytest.raises(Exception,match="recovery state"):c.recover("book")
+        assert snap(c)==before
+
+def test_b1_pays_only_second_claim_and_returns_exact_unused_reserve(setup):
+    c,vm,o,a,b=compiled(setup);vm.sender=o;c.choose_branch("book","B1")
+    assert c.get_credit("book",o)=="2 GEN" and c.get_credit("book",a)=="0 GEN" and c.get_credit("book",b)=="2 GEN"
+    assert data(c.get_claim("book","C0"))["allocated"]=="0 GEN" and data(c.get_claim("book","C1"))["allocated"]=="2 GEN"
+    for actor in (o,b):vm.sender=actor;c.withdraw_credit("book",2)
+    c.close_book("book");assert data(c.get_accounting())["withdrawn"]=="4 GEN"
+
+def test_new_book_after_zero_closure_preserves_old_entity_and_global_conservation(setup):
+    c,vm,o,a,b=compiled(setup);vm.sender=o;c.choose_branch("book","B2")
+    for actor in (a,b):vm.sender=actor;c.withdraw_credit("book",2)
+    c.close_book("book");old=c.get_book("book");before=c.get_accounting()
+    with pytest.raises(Exception,match="existing book ID"):create(c,vm,o,a,b)
+    assert c.get_book("book")==old and c.get_accounting()==before
+    create(c,vm,o,a,b,book="after-close",value=GEN)
+    assert c.get_book("book")==old and data(c.get_book("after-close"))["locked"]=="1 GEN"
+    assert data(c.get_accounting())=={"received":"5 GEN","locked":"1 GEN","credits":"0 GEN","withdrawn":"4 GEN","invariant":True}

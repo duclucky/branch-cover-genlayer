@@ -1,0 +1,14 @@
+{
+  "command": "Python ASCII/header/AST source scan",
+  "nonAsciiBytes": 0,
+  "header": [
+    "# v0.3.0",
+    "# { \"Depends\": \"py-genlayer:5jycge4q8k23462jtb0b9fyey1s9qz928sz2nbrd9mg4sxqg2qng\" }",
+    "import genlayer as gl"
+  ],
+  "validatorVisibleClasses": [
+    "BranchCoverContract"
+  ],
+  "sourceSha256": "576e16ac2e294ff5382bd4a2766d623f219a1e5f915082ef7cdd713ad68e2f82",
+  "passed": true
+}

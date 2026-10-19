@@ -1,0 +1,961 @@
+{
+  "at": "2026-10-19T11:08:08.489Z",
+  "command": "node scripts/audit.mjs",
+  "network": "Studio Dev",
+  "chainId": 61997,
+  "rpc": "https://studio-next.genlayer.com/api",
+  "explorer": "https://explorer-studio-dev.genlayer.com",
+  "target": "0xf853a3129f39c91489Ce3187f3cbb1497d4d2ac6",
+  "sourceSha256": "576e16ac2e294ff5382bd4a2766d623f219a1e5f915082ef7cdd713ad68e2f82",
+  "codeMatchesDeployment": true,
+  "recognizedMethods": 20,
+  "deploymentResult": "SUCCESS",
+  "books": [
+    {
+      "id": "archive-pruned-v1",
+      "version": "BC_V1",
+      "funder": "0xbd733bc56ec4a55fa25c068b9306b0171335d199",
+      "controller": "0xbd733bc56ec4a55fa25c068b9306b0171335d199",
+      "definition_digest": "edcef93bd5b01072df01fabaeb21d23aba6f54c92fa14c9ef2517dc68ad64f5a",
+      "review_deadline": 1792407878,
+      "choice_deadline": 1792409678,
+      "phase": "CLOSED",
+      "attempts": 1,
+      "compiled": true,
+      "mask": 3,
+      "mask_records": 2,
+      "selected": "B0",
+      "received": "4 GEN",
+      "locked": "0 GEN",
+      "credits": "0 GEN",
+      "withdrawn": "4 GEN",
+      "claims": [
+        {
+          "id": "C0",
+          "payee": "0x2818b7bc95a05df416e7c2e7f928e12fe4715cfd",
+          "predicate": "The selected branch requires reading records from the private internal archive.",
+          "face": "2 GEN",
+          "ratified": true,
+          "allocated": "2 GEN"
+        },
+        {
+          "id": "C1",
+          "payee": "0xc73a3ded1164883c41ab87ed13a279b2b4cfd4b8",
+          "predicate": "The selected branch requires publishing a report outside the workspace.",
+          "face": "2 GEN",
+          "ratified": true,
+          "allocated": "0 GEN"
+        }
+      ],
+      "branches": [
+        {
+          "id": "B0",
+          "definition": "Read records from the private internal archive only. Do not publish any report outside the workspace.",
+          "liability": "2 GEN",
+          "feasible": true
+        },
+        {
+          "id": "B1",
+          "definition": "Publish an already-prepared report outside the workspace. Do not read any records from the private internal archive.",
+          "liability": "2 GEN",
+          "feasible": true
+        },
+        {
+          "id": "B2",
+          "definition": "Read records from the private internal archive and publish a report based on those records outside the workspace.",
+          "liability": "4 GEN",
+          "feasible": false
+        }
+      ],
+      "maskHistory": [
+        {
+          "index": 1,
+          "timestamp": 1792406291,
+          "mask": 7,
+          "reserve": "4 GEN",
+          "released": "0 GEN"
+        },
+        {
+          "index": 2,
+          "timestamp": 1792406360,
+          "mask": 3,
+          "reserve": "2 GEN",
+          "released": "2 GEN"
+        }
+      ],
+      "margin": {
+        "mask": 3,
+        "compiled": true,
+        "liability": [
+          "2 GEN",
+          "2 GEN",
+          "4 GEN"
+        ],
+        "required": "0 GEN",
+        "locked": "0 GEN"
+      }
+    },
+    {
+      "id": "archive-joint-v1",
+      "version": "BC_V1",
+      "funder": "0xbd733bc56ec4a55fa25c068b9306b0171335d199",
+      "controller": "0xbd733bc56ec4a55fa25c068b9306b0171335d199",
+      "definition_digest": "099c9a8a8cd473ba4799bc0f71befb76c504a0722e682825c089054600ccfb36",
+      "review_deadline": 1792408512,
+      "choice_deadline": 1792410312,
+      "phase": "CLOSED",
+      "attempts": 1,
+      "compiled": true,
+      "mask": 7,
+      "mask_records": 1,
+      "selected": "B2",
+      "received": "4 GEN",
+      "locked": "0 GEN",
+      "credits": "0 GEN",
+      "withdrawn": "4 GEN",
+      "claims": [
+        {
+          "id": "C0",
+          "payee": "0x2818b7bc95a05df416e7c2e7f928e12fe4715cfd",
+          "predicate": "The selected branch requires reading records from the private internal archive.",
+          "face": "2 GEN",
+          "ratified": true,
+          "allocated": "2 GEN"
+        },
+        {
+          "id": "C1",
+          "payee": "0xc73a3ded1164883c41ab87ed13a279b2b4cfd4b8",
+          "predicate": "The selected branch requires publishing a report outside the workspace.",
+          "face": "2 GEN",
+          "ratified": true,
+          "allocated": "2 GEN"
+        }
+      ],
+      "branches": [
+        {
+          "id": "B0",
+          "definition": "Read records from the private internal archive only. Do not publish any report outside the workspace.",
+          "liability": "2 GEN",
+          "feasible": true
+        },
+        {
+          "id": "B1",
+          "definition": "Publish an already-prepared report outside the workspace. Do not read any records from the private internal archive.",
+          "liability": "2 GEN",
+          "feasible": true
+        },
+        {
+          "id": "B2",
+          "definition": "Read records from the private internal archive and publish a report based on those records outside the workspace.",
+          "liability": "4 GEN",
+          "feasible": true
+        }
+      ],
+      "maskHistory": [
+        {
+          "index": 1,
+          "timestamp": 1792406932,
+          "mask": 7,
+          "reserve": "4 GEN",
+          "released": "0 GEN"
+        }
+      ],
+      "margin": {
+        "mask": 7,
+        "compiled": true,
+        "liability": [
+          "2 GEN",
+          "2 GEN",
+          "4 GEN"
+        ],
+        "required": "0 GEN",
+        "locked": "0 GEN"
+      }
+    },
+    {
+      "id": "archive-no-choice-v1",
+      "version": "BC_V1",
+      "funder": "0xbd733bc56ec4a55fa25c068b9306b0171335d199",
+      "controller": "0xbd733bc56ec4a55fa25c068b9306b0171335d199",
+      "definition_digest": "ff59563dc6efc851f380701e1b4f9dfc3b23691937b17871261bd84ba2d0f518",
+      "review_deadline": 1792405878,
+      "choice_deadline": 1792406178,
+      "phase": "CLOSED",
+      "attempts": 1,
+      "compiled": true,
+      "mask": 7,
+      "mask_records": 1,
+      "selected": "",
+      "received": "2 GEN",
+      "locked": "0 GEN",
+      "credits": "0 GEN",
+      "withdrawn": "2 GEN",
+      "claims": [
+        {
+          "id": "C0",
+          "payee": "0x2818b7bc95a05df416e7c2e7f928e12fe4715cfd",
+          "predicate": "The selected branch requires reading records from the private internal archive.",
+          "face": "1 GEN",
+          "ratified": true,
+          "allocated": "0 GEN"
+        },
+        {
+          "id": "C1",
+          "payee": "0xc73a3ded1164883c41ab87ed13a279b2b4cfd4b8",
+          "predicate": "The selected branch requires publishing a report outside the workspace.",
+          "face": "1 GEN",
+          "ratified": true,
+          "allocated": "0 GEN"
+        }
+      ],
+      "branches": [
+        {
+          "id": "B0",
+          "definition": "Read records from the private internal archive only. Do not publish any report outside the workspace.",
+          "liability": "1 GEN",
+          "feasible": true
+        },
+        {
+          "id": "B1",
+          "definition": "Publish an already-prepared report outside the workspace. Do not read any records from the private internal archive.",
+          "liability": "1 GEN",
+          "feasible": true
+        },
+        {
+          "id": "B2",
+          "definition": "Read records from the private internal archive and publish a report based on those records outside the workspace.",
+          "liability": "2 GEN",
+          "feasible": true
+        }
+      ],
+      "maskHistory": [
+        {
+          "index": 1,
+          "timestamp": 1792405746,
+          "mask": 7,
+          "reserve": "2 GEN",
+          "released": "0 GEN"
+        }
+      ],
+      "margin": {
+        "mask": 7,
+        "compiled": true,
+        "liability": [
+          "1 GEN",
+          "1 GEN",
+          "2 GEN"
+        ],
+        "required": "0 GEN",
+        "locked": "0 GEN"
+      }
+    },
+    {
+      "id": "archive-partial-v1",
+      "version": "BC_V1",
+      "funder": "0xbd733bc56ec4a55fa25c068b9306b0171335d199",
+      "controller": "0xbd733bc56ec4a55fa25c068b9306b0171335d199",
+      "definition_digest": "9968096ca72d9aa0bede06e9359352da7a93ec820d60c60819ffe239d59c250b",
+      "review_deadline": 1792405898,
+      "choice_deadline": 1792405988,
+      "phase": "CLOSED",
+      "attempts": 0,
+      "compiled": false,
+      "mask": 7,
+      "mask_records": 0,
+      "selected": "",
+      "received": "1 GEN",
+      "locked": "0 GEN",
+      "credits": "0 GEN",
+      "withdrawn": "1 GEN",
+      "claims": [
+        {
+          "id": "C0",
+          "payee": "0x2818b7bc95a05df416e7c2e7f928e12fe4715cfd",
+          "predicate": "The selected branch requires reading records from the private internal archive.",
+          "face": "2 GEN",
+          "ratified": false,
+          "allocated": "0 GEN"
+        },
+        {
+          "id": "C1",
+          "payee": "0xc73a3ded1164883c41ab87ed13a279b2b4cfd4b8",
+          "predicate": "The selected branch requires publishing a report outside the workspace.",
+          "face": "2 GEN",
+          "ratified": false,
+          "allocated": "0 GEN"
+        }
+      ],
+      "branches": [
+        {
+          "id": "B0",
+          "definition": "Read records from the private internal archive only. Do not publish any report outside the workspace.",
+          "liability": "PENDING",
+          "feasible": true
+        },
+        {
+          "id": "B1",
+          "definition": "Publish an already-prepared report outside the workspace. Do not read any records from the private internal archive.",
+          "liability": "PENDING",
+          "feasible": true
+        },
+        {
+          "id": "B2",
+          "definition": "Read records from the private internal archive and publish a report based on those records outside the workspace.",
+          "liability": "PENDING",
+          "feasible": true
+        }
+      ],
+      "maskHistory": [],
+      "margin": {
+        "mask": 7,
+        "compiled": false,
+        "liability": [],
+        "required": "0 GEN",
+        "locked": "0 GEN"
+      }
+    },
+    {
+      "id": "archive-unclear-v1",
+      "version": "BC_V1",
+      "funder": "0xbd733bc56ec4a55fa25c068b9306b0171335d199",
+      "controller": "0xbd733bc56ec4a55fa25c068b9306b0171335d199",
+      "definition_digest": "d408621eb0518967c18d27dfe0aa967cfd5f429b9de1312bf67d471396201e3f",
+      "review_deadline": 1792406154,
+      "choice_deadline": 1792406454,
+      "phase": "CLOSED",
+      "attempts": 1,
+      "compiled": false,
+      "mask": 7,
+      "mask_records": 0,
+      "selected": "",
+      "received": "2 GEN",
+      "locked": "0 GEN",
+      "credits": "0 GEN",
+      "withdrawn": "2 GEN",
+      "claims": [
+        {
+          "id": "C0",
+          "payee": "0x2818b7bc95a05df416e7c2e7f928e12fe4715cfd",
+          "predicate": "The selected branch requires reading records from the private internal archive.",
+          "face": "1 GEN",
+          "ratified": true,
+          "allocated": "0 GEN"
+        },
+        {
+          "id": "C1",
+          "payee": "0xc73a3ded1164883c41ab87ed13a279b2b4cfd4b8",
+          "predicate": "The selected branch requires publishing a report outside the workspace.",
+          "face": "1 GEN",
+          "ratified": true,
+          "allocated": "0 GEN"
+        }
+      ],
+      "branches": [
+        {
+          "id": "B0",
+          "definition": "Carry out all mandatory archive operations from specification ABSENT-SPEC. It may require or prohibit reading archive records. Do not publish any report outside the workspace.",
+          "liability": "PENDING",
+          "feasible": true
+        },
+        {
+          "id": "B1",
+          "definition": "Publish an already-prepared report outside the workspace. Do not read any records from the private internal archive.",
+          "liability": "PENDING",
+          "feasible": true
+        },
+        {
+          "id": "B2",
+          "definition": "Read records from the private internal archive and publish a report based on those records outside the workspace.",
+          "liability": "PENDING",
+          "feasible": true
+        }
+      ],
+      "maskHistory": [],
+      "margin": {
+        "mask": 7,
+        "compiled": false,
+        "liability": [],
+        "required": "0 GEN",
+        "locked": "0 GEN"
+      }
+    }
+  ],
+  "operations": [
+    {
+      "file": "lifecycle-main-create.json",
+      "operation": "create_book",
+      "hash": "0x5e60c3a66bcc1e6fb6d0f202fe0d2487c81dec30f13b1fd9d1fa230268e06e8f",
+      "expectedSuccess": true,
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "successful": true
+    },
+    {
+      "file": "lifecycle-main-topup.json",
+      "operation": "top_up",
+      "hash": "0x547a67c71c470d3f0cf31dff71c560165b61e7623a11b7a26a47e0815ba9a83f",
+      "expectedSuccess": true,
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "successful": true
+    },
+    {
+      "file": "lifecycle-main-ratify1.json",
+      "operation": "ratify",
+      "hash": "0x5414ea677955934d26e7506cf0de08fc962d3f53206165948a51fd1024a22e83",
+      "expectedSuccess": true,
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "successful": true
+    },
+    {
+      "file": "lifecycle-main-ratify2.json",
+      "operation": "ratify",
+      "hash": "0xe1996fa89a38852b748102d5f9afeaeddd0f5cf53acddf2314001f7532e06b11",
+      "expectedSuccess": true,
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "successful": true
+    },
+    {
+      "file": "lifecycle-main-compile.json",
+      "operation": "compile_book",
+      "hash": "0x85729b19eb0881cb36b37dab4b25a9c54b5b168588a036d551732c2532900a38",
+      "expectedSuccess": true,
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "successful": true
+    },
+    {
+      "file": "lifecycle-main-prune.json",
+      "operation": "prune_branches",
+      "hash": "0xfb04be63a5004d2104cc2316a1d8658e0f716e7a7fa023d790a0b11767894cd0",
+      "expectedSuccess": true,
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "successful": true
+    },
+    {
+      "file": "lifecycle-main-surplus.json",
+      "operation": "withdraw_credit",
+      "hash": "0xde8df05b58e597f9549e8f3c0b91f22f7da537a696fb82bd8fefa6a9c7b35b46",
+      "expectedSuccess": true,
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "successful": true
+    },
+    {
+      "file": "lifecycle-main-regrowth-rejected.json",
+      "operation": "prune_branches",
+      "hash": "0xa1dc0b6dcb3cc5c97a468f31e31b48ddf8af26822944b7d7a94ea76d3016020d",
+      "expectedSuccess": false,
+      "status": "FINALIZED",
+      "execution": "ERROR",
+      "successful": false
+    },
+    {
+      "file": "lifecycle-main-choice.json",
+      "operation": "choose_branch",
+      "hash": "0x16be4a6dca727053bbf6562007d4eafc2e3a5b57d3aa3f61bac626076205fae1",
+      "expectedSuccess": true,
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "successful": true
+    },
+    {
+      "file": "lifecycle-main-duplicate-choice-rejected.json",
+      "operation": "choose_branch",
+      "hash": "0x72984915f4497d2a8b83dac2053f5142a11c1734a646d0ddbe8e3629b1655f0b",
+      "expectedSuccess": false,
+      "status": "FINALIZED",
+      "execution": "ERROR",
+      "successful": false
+    },
+    {
+      "file": "lifecycle-main-payee.json",
+      "operation": "withdraw_credit",
+      "hash": "0x77d589607972d4c5f362885d0ff642bc2cbf6be2479ceee1c79d256a62056596",
+      "expectedSuccess": true,
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "successful": true
+    },
+    {
+      "file": "lifecycle-main-close.json",
+      "operation": "close_book",
+      "hash": "0xae1912f22ac675465517f663d8389398ee26c8c51fc19641e2ebe39e8c774151",
+      "expectedSuccess": true,
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "successful": true
+    },
+    {
+      "file": "lifecycle-joint-create.json",
+      "operation": "create_book",
+      "hash": "0xf8e5be9a420092802dae2d685d004a5b19ba8c1ba85846be0d198fd72feb0ed8",
+      "expectedSuccess": true,
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "successful": true
+    },
+    {
+      "file": "lifecycle-joint-topup.json",
+      "operation": "top_up",
+      "hash": "0x6674ea44f5bcec4626287a525c18378118549eb7dca84d00ef2d04275a2e7222",
+      "expectedSuccess": true,
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "successful": true
+    },
+    {
+      "file": "lifecycle-joint-ratify1.json",
+      "operation": "ratify",
+      "hash": "0x2a5e767d7544d82ebf4be15c59bf52ad361760693f4968db3f1168c7e33a7ef7",
+      "expectedSuccess": true,
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "successful": true
+    },
+    {
+      "file": "lifecycle-joint-ratify2.json",
+      "operation": "ratify",
+      "hash": "0xd631c4f6577bd1044e786a02dd63df7853cbb027b2198018346ec90d38e72649",
+      "expectedSuccess": true,
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "successful": true
+    },
+    {
+      "file": "lifecycle-joint-compile.json",
+      "operation": "compile_book",
+      "hash": "0xc3a7661a3ece4cd7fe10ba61d34be2c3a57249a6c359e450bd0b8eb504c977b1",
+      "expectedSuccess": true,
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "successful": true
+    },
+    {
+      "file": "lifecycle-joint-choice.json",
+      "operation": "choose_branch",
+      "hash": "0x642aec6df5cd700f6f66643c35ab040c7c43b89325188ee4a5b99e6c3dcffe12",
+      "expectedSuccess": true,
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "successful": true
+    },
+    {
+      "file": "lifecycle-joint-payee0.json",
+      "operation": "withdraw_credit",
+      "hash": "0x4e8347205b0dc1e20ae81f24fc28b186ffef7edf6b5b049e9f478eeab6acbadf",
+      "expectedSuccess": true,
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "successful": true
+    },
+    {
+      "file": "lifecycle-joint-payee1.json",
+      "operation": "withdraw_credit",
+      "hash": "0x05b07831f83a8ac9c67c5dc2d92b58aa5ebccf79842bbee2c8ad2ee4a5116dfc",
+      "expectedSuccess": true,
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "successful": true
+    },
+    {
+      "file": "lifecycle-joint-close.json",
+      "operation": "close_book",
+      "hash": "0xe1f16dbe4eedfbfceeeb881e2d33cd067521eb900555ebbf05703eb431b3aa39",
+      "expectedSuccess": true,
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "successful": true
+    },
+    {
+      "file": "lifecycle-expiry-create.json",
+      "operation": "create_book",
+      "hash": "0x194cf2fb40773b047cdb48851489b3d3128b70c4ed4e9aeee543087027624388",
+      "expectedSuccess": true,
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "successful": true
+    },
+    {
+      "file": "lifecycle-expiry-ratify1.json",
+      "operation": "ratify",
+      "hash": "0x6445127c1c246deb970912627fbd46a3ffa2d5ea5ba456a35ed64c336839daae",
+      "expectedSuccess": true,
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "successful": true
+    },
+    {
+      "file": "lifecycle-expiry-ratify2.json",
+      "operation": "ratify",
+      "hash": "0xdd3675fb610e77e580c912b791d88ab93bf4d2d295792391d1ddf0a033aa436d",
+      "expectedSuccess": true,
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "successful": true
+    },
+    {
+      "file": "lifecycle-expiry-compile.json",
+      "operation": "compile_book",
+      "hash": "0x2424e645459c937fc4cc21027abedeaf3627aa95d09e448c453beca4a9d0eed5",
+      "expectedSuccess": true,
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "successful": true
+    },
+    {
+      "file": "lifecycle-expiry-recover.json",
+      "operation": "recover",
+      "hash": "0x54461816bb38c08883be352df2829e0e21ef839e2f58e8a50193848d257a2c0c",
+      "expectedSuccess": true,
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "successful": true
+    },
+    {
+      "file": "lifecycle-expiry-refund0.json",
+      "operation": "withdraw_credit",
+      "hash": "0xd0b020b0b9f325edbeb8a500a9a7df66b365b80b1ffbc11300e1497860b473c0",
+      "expectedSuccess": true,
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "successful": true
+    },
+    {
+      "file": "lifecycle-expiry-close.json",
+      "operation": "close_book",
+      "hash": "0xfae3f0b87f3a9907b2235457c0ecbe7d4586bed046a037dbb3aa4daf879b6f2f",
+      "expectedSuccess": true,
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "successful": true
+    },
+    {
+      "file": "lifecycle-partial-create.json",
+      "operation": "create_book",
+      "hash": "0x9549521b17529f10c864913d40ffd12c1faa53a4a8ec1e4d64236025297d8c9e",
+      "expectedSuccess": true,
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "successful": true
+    },
+    {
+      "file": "lifecycle-partial-recover.json",
+      "operation": "recover",
+      "hash": "0xc047193cdcb5ad323bba54ebfbed8944a646778bb3e564314b070d0a91b93d7c",
+      "expectedSuccess": true,
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "successful": true
+    },
+    {
+      "file": "lifecycle-partial-refund0.json",
+      "operation": "withdraw_credit",
+      "hash": "0x4ec78af2dc408d0f5d3b9953a7a63b990e9f4f4a74fa8994a6a80ab64ecd1441",
+      "expectedSuccess": true,
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "successful": true
+    },
+    {
+      "file": "lifecycle-partial-close.json",
+      "operation": "close_book",
+      "hash": "0xc7613639ed69c3db1c99a0c13695e0f33bfde1f0a9552a8ff4a382659a72a565",
+      "expectedSuccess": true,
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "successful": true
+    },
+    {
+      "file": "lifecycle-unclear-create.json",
+      "operation": "create_book",
+      "hash": "0x1dd955cb9e87fe8abcc1048772302cb9d8501c308da0e2aa0fac3b887b3cb4b0",
+      "expectedSuccess": true,
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "successful": true
+    },
+    {
+      "file": "lifecycle-unclear-ratify1.json",
+      "operation": "ratify",
+      "hash": "0x4fc36cf2873ec8fbf316fa43ed89002dee68737bed1afc233431b1fafeeec3fb",
+      "expectedSuccess": true,
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "successful": true
+    },
+    {
+      "file": "lifecycle-unclear-ratify2.json",
+      "operation": "ratify",
+      "hash": "0x408437bf49b9c2453ca6572dcfeb9be1b88b1cb1fd722d286c6c80e39a831b0d",
+      "expectedSuccess": true,
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "successful": true
+    },
+    {
+      "file": "lifecycle-unclear-compile.json",
+      "operation": "compile_book",
+      "hash": "0xeac2836591936f0a5afb2c9226187c442574716c2934e5c179534498fd2aca3c",
+      "expectedSuccess": true,
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "successful": true
+    },
+    {
+      "file": "lifecycle-unclear-recover.json",
+      "operation": "recover",
+      "hash": "0x1ff2de01616af3716eab32bb53597e024e7270a8e637e893a0939035f6465bfd",
+      "expectedSuccess": true,
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "successful": true
+    },
+    {
+      "file": "lifecycle-unclear-refund0.json",
+      "operation": "withdraw_credit",
+      "hash": "0x3736192423e54de216ad0301592ca508bc2bc092a3369647042f1a7e27a03163",
+      "expectedSuccess": true,
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "successful": true
+    },
+    {
+      "file": "lifecycle-unclear-close.json",
+      "operation": "close_book",
+      "hash": "0x04a03f6007127ea4aa8d7745688ac965a74b91fa21bb2f7f77a4c2299bee9ab2",
+      "expectedSuccess": true,
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "successful": true
+    }
+  ],
+  "semantics": [
+    {
+      "case": "expiry",
+      "hash": "0x2424e645459c937fc4cc21027abedeaf3627aa95d09e448c453beca4a9d0eed5",
+      "stage": "OK",
+      "cells": [
+        {
+          "id": "C0:B0",
+          "class": "TRIGGERED"
+        },
+        {
+          "id": "C0:B1",
+          "class": "NOT_TRIGGERED"
+        },
+        {
+          "id": "C0:B2",
+          "class": "TRIGGERED"
+        },
+        {
+          "id": "C1:B0",
+          "class": "NOT_TRIGGERED"
+        },
+        {
+          "id": "C1:B1",
+          "class": "TRIGGERED"
+        },
+        {
+          "id": "C1:B2",
+          "class": "TRIGGERED"
+        }
+      ],
+      "successfulIndependentValidators": 2,
+      "votes": {
+        "agree": 3,
+        "disagree": 1,
+        "idle": 1,
+        "other": 0
+      },
+      "phaseAfterReview": "COMPILED"
+    },
+    {
+      "case": "unclear",
+      "hash": "0xeac2836591936f0a5afb2c9226187c442574716c2934e5c179534498fd2aca3c",
+      "stage": "OK",
+      "cells": [
+        {
+          "id": "C0:B0",
+          "class": "UNCLEAR"
+        },
+        {
+          "id": "C0:B1",
+          "class": "NOT_TRIGGERED"
+        },
+        {
+          "id": "C0:B2",
+          "class": "TRIGGERED"
+        },
+        {
+          "id": "C1:B0",
+          "class": "NOT_TRIGGERED"
+        },
+        {
+          "id": "C1:B1",
+          "class": "TRIGGERED"
+        },
+        {
+          "id": "C1:B2",
+          "class": "TRIGGERED"
+        }
+      ],
+      "successfulIndependentValidators": 2,
+      "votes": {
+        "agree": 3,
+        "disagree": 1,
+        "idle": 1,
+        "other": 0
+      },
+      "phaseAfterReview": "RETRYABLE"
+    },
+    {
+      "case": "main",
+      "hash": "0x85729b19eb0881cb36b37dab4b25a9c54b5b168588a036d551732c2532900a38",
+      "stage": "OK",
+      "cells": [
+        {
+          "id": "C0:B0",
+          "class": "TRIGGERED"
+        },
+        {
+          "id": "C0:B1",
+          "class": "NOT_TRIGGERED"
+        },
+        {
+          "id": "C0:B2",
+          "class": "TRIGGERED"
+        },
+        {
+          "id": "C1:B0",
+          "class": "NOT_TRIGGERED"
+        },
+        {
+          "id": "C1:B1",
+          "class": "TRIGGERED"
+        },
+        {
+          "id": "C1:B2",
+          "class": "TRIGGERED"
+        }
+      ],
+      "successfulIndependentValidators": 2,
+      "votes": {
+        "agree": 3,
+        "disagree": 1,
+        "idle": 1,
+        "other": 0
+      },
+      "phaseAfterReview": "COMPILED"
+    },
+    {
+      "case": "joint",
+      "hash": "0xc3a7661a3ece4cd7fe10ba61d34be2c3a57249a6c359e450bd0b8eb504c977b1",
+      "stage": "OK",
+      "cells": [
+        {
+          "id": "C0:B0",
+          "class": "TRIGGERED"
+        },
+        {
+          "id": "C0:B1",
+          "class": "NOT_TRIGGERED"
+        },
+        {
+          "id": "C0:B2",
+          "class": "TRIGGERED"
+        },
+        {
+          "id": "C1:B0",
+          "class": "NOT_TRIGGERED"
+        },
+        {
+          "id": "C1:B1",
+          "class": "TRIGGERED"
+        },
+        {
+          "id": "C1:B2",
+          "class": "TRIGGERED"
+        }
+      ],
+      "successfulIndependentValidators": 3,
+      "votes": {
+        "agree": 3,
+        "disagree": 1,
+        "idle": 1,
+        "other": 0
+      },
+      "phaseAfterReview": "COMPILED"
+    }
+  ],
+  "deliveries": [
+    {
+      "file": "delivery-expiry-refund0.json",
+      "parentHash": "0xd0b020b0b9f325edbeb8a500a9a7df66b365b80b1ffbc11300e1497860b473c0",
+      "recipient": "0xBd733BC56Ec4a55FA25C068B9306b0171335D199",
+      "valueGEN": "2",
+      "exactNativeDecrease": true,
+      "externalMessageDelivered": true
+    },
+    {
+      "file": "delivery-joint-payee0.json",
+      "parentHash": "0x4e8347205b0dc1e20ae81f24fc28b186ffef7edf6b5b049e9f478eeab6acbadf",
+      "recipient": "0x2818B7BC95a05Df416E7c2e7F928e12FE4715cFD",
+      "valueGEN": "2",
+      "exactNativeDecrease": true,
+      "externalMessageDelivered": true
+    },
+    {
+      "file": "delivery-joint-payee1.json",
+      "parentHash": "0x05b07831f83a8ac9c67c5dc2d92b58aa5ebccf79842bbee2c8ad2ee4a5116dfc",
+      "recipient": "0xc73a3DED1164883C41aB87ED13a279B2b4CFD4B8",
+      "valueGEN": "2",
+      "exactNativeDecrease": true,
+      "externalMessageDelivered": true
+    },
+    {
+      "file": "delivery-main-payee.json",
+      "parentHash": "0x77d589607972d4c5f362885d0ff642bc2cbf6be2479ceee1c79d256a62056596",
+      "recipient": "0x2818B7BC95a05Df416E7c2e7F928e12FE4715cFD",
+      "valueGEN": "2",
+      "exactNativeDecrease": true,
+      "externalMessageDelivered": true
+    },
+    {
+      "file": "delivery-main-surplus.json",
+      "parentHash": "0xde8df05b58e597f9549e8f3c0b91f22f7da537a696fb82bd8fefa6a9c7b35b46",
+      "recipient": "0xBd733BC56Ec4a55FA25C068B9306b0171335D199",
+      "valueGEN": "2",
+      "exactNativeDecrease": true,
+      "externalMessageDelivered": true
+    },
+    {
+      "file": "delivery-partial-refund0.json",
+      "parentHash": "0x4ec78af2dc408d0f5d3b9953a7a63b990e9f4f4a74fa8994a6a80ab64ecd1441",
+      "recipient": "0xBd733BC56Ec4a55FA25C068B9306b0171335D199",
+      "valueGEN": "1",
+      "exactNativeDecrease": true,
+      "externalMessageDelivered": true
+    },
+    {
+      "file": "delivery-unclear-refund0.json",
+      "parentHash": "0x3736192423e54de216ad0301592ca508bc2bc092a3369647042f1a7e27a03163",
+      "recipient": "0xBd733BC56Ec4a55FA25C068B9306b0171335D199",
+      "valueGEN": "2",
+      "exactNativeDecrease": true,
+      "externalMessageDelivered": true
+    }
+  ],
+  "accounting": {
+    "received": "13 GEN",
+    "locked": "0 GEN",
+    "credits": "0 GEN",
+    "withdrawn": "13 GEN",
+    "invariant": true
+  },
+  "nativeContractGEN": "0",
+  "passed": true
+}

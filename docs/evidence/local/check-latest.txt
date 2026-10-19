@@ -1,0 +1,51 @@
+
+> branch-cover-genlayer@0.1.0 check
+> node scripts/check.mjs
+
+
+✓ Lint passed (3 checks)
+✓ Validation passed
+  Contract: BranchCoverContract
+  Methods: 20 (11 view, 9 write)
+INFO: File `gltest.config.yaml` found in the current directory, using it
+INFO: Clearing artifacts directory: artifacts
+INFO: Using the following configuration:
+INFO:   RPC URL: http://127.0.0.1:4000/api
+INFO:   Selected Network: localnet
+INFO:   Available networks: ['localnet']
+INFO:   Selected chain type: localnet
+INFO:   Available chains: localnet, studio_devnet, studionet, testnet_asimov, testnet_bradbury
+INFO:   Contracts directory: contracts
+INFO:   Artifacts directory: artifacts
+INFO:   Environment: .env
+INFO:   Default wait interval: 3000 ms
+INFO:   Default wait retries: 50
+INFO:   Leader only mode: False
+============================= test session starts =============================
+platform win32 -- Python 3.12.13, pytest-8.4.2, pluggy-1.7.0
+rootdir: D:\Genlayer Project\branch-cover
+plugins: genlayer-test-0.30.0rc2
+collected 102 items
+
+tests\direct\test_branchcover.py ....................................... [ 38%]
+...............................................................          [100%]
+
+============================ 102 passed in 15.26s =============================
+✔ full validator executions prove agreement even when representative receipt is idle (1.8653ms)
+✔ successful status or agreeing labels alone never count as executed agreement (0.3218ms)
+✔ real SDK wire distinguishes Address arguments from ordinary strings (3.6464ms)
+✔ bad address input fails before fees/signing and non-address methods are unchanged (0.4417ms)
+✔ broadcast journal persists signed transaction hash before network send (6.327ms)
+✔ raw Studio success requires finalized successful execution (1.5069ms)
+✔ normalized RC success and failed idle quorum distinguish actual failures (0.354ms)
+✔ safe projection never contains validator config or arbitrary diagnostics (1.2703ms)
+✔ external message proof rejects parent-only finality and wrong value/recipient (1.303ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 761.8611
+BRANCHCOVER_CHECK_PASS: recognized contract + gltest safety/semantic/metadata tests + script tests.

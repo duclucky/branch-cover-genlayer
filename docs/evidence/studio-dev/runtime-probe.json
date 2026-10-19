@@ -1,0 +1,55 @@
+{
+  "at": "2026-10-19T10:18:16.085Z",
+  "command": "node scripts/runtime-probe.mjs",
+  "scope": "Unsigned exact-source schema/constructor only; not finality or semantic consensus.",
+  "network": {
+    "network": "Studio Dev",
+    "chainId": 61997,
+    "rpc": "https://studio-next.genlayer.com/api",
+    "explorer": "https://explorer-studio-dev.genlayer.com"
+  },
+  "identity": {
+    "network": "Studio Dev",
+    "chainId": 61997,
+    "sourceCommit": "411579b2875acde10134d9549bcab87ccbd9c094",
+    "sourceSha256": "576e16ac2e294ff5382bd4a2766d623f219a1e5f915082ef7cdd713ad68e2f82",
+    "runner": "5jycge4q8k23462jtb0b9fyey1s9qz928sz2nbrd9mg4sxqg2qng",
+    "api": "v0.3.0",
+    "genvm": "v0.6.0-rc5",
+    "sdk": "2.0.0-rc.1"
+  },
+  "checks": [
+    {
+      "kind": "schema",
+      "methods": [
+        "can_choose",
+        "choose_branch",
+        "close_book",
+        "compile_book",
+        "create_book",
+        "get_accounting",
+        "get_attempt",
+        "get_book",
+        "get_branch",
+        "get_claim",
+        "get_credit",
+        "get_margin",
+        "get_mask_history",
+        "get_matrix",
+        "get_policy",
+        "prune_branches",
+        "ratify",
+        "recover",
+        "top_up",
+        "withdraw_credit"
+      ],
+      "passed": true
+    },
+    {
+      "kind": "constructor",
+      "executionResult": "SUCCESS",
+      "passed": true
+    }
+  ],
+  "passed": true
+}

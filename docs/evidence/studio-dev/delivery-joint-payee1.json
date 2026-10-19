@@ -1,0 +1,24 @@
+{
+  "parentHash": "0x05b07831f83a8ac9c67c5dc2d92b58aa5ebccf79842bbee2c8ad2ee4a5116dfc",
+  "recipient": "0xc73a3DED1164883C41aB87ED13a279B2b4CFD4B8",
+  "expectedTransferGEN": "2",
+  "contractBeforeGEN": "7",
+  "contractAfterGEN": "5",
+  "recipientBeforeGEN": "0.999685484999996708",
+  "recipientAfterGEN": "2.999559178999995885",
+  "recipientNetIncreaseGEN": "1.999873693999999177",
+  "feeDepositGEN": "0.000759801600010352",
+  "creditAfter": "0 GEN",
+  "checkedAt": "2026-10-19T10:52:54.460Z",
+  "externalReceipt": {
+    "kind": "parent-attached external EVM execution receipt",
+    "recipient": "0xc73a3DED1164883C41aB87ED13a279B2b4CFD4B8",
+    "valueGEN": "2",
+    "executionRecorded": true,
+    "messageValueDelivered": true,
+    "effectId": "0x2c9ed766e755c38512efbb3d1ac2b393adfe115dd5d4943d6e17488849c427c1",
+    "separateChildHashAvailable": false
+  },
+  "note": "Recipient net increase includes own fee charges/refunds; exact delivered value and recipient are independently proven by the external EVM execution receipt.",
+  "balanceProven": true
+}

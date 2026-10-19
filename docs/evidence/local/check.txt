@@ -1,0 +1,23 @@
+Command: npm run check
+Working directory: branch-cover project root
+Exit code: 0
+Historical output excerpts before later test additions (current result is in check-latest.txt):
+
+> branch-cover-genlayer@0.1.0 check
+> node scripts/check.mjs
+
+  Contract: BranchCoverContract
+  Methods: 20 (11 view, 9 write)
+
+============================= 71 passed in 10.65s =============================
+tests 5
+pass 5
+fail 0
+cancelled 0
+skipped 0
+todo 0
+BRANCHCOVER_CHECK_PASS: recognized contract + gltest safety/semantic/metadata tests + script tests.
+
+The two successful lint/validation lines use Unicode checkmarks in the CLI;
+they are omitted here rather than represented as ASCII literal output.
+This local result is not a deployment, finality, transfer or acceptance proof.

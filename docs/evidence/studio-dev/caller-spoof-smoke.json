@@ -1,0 +1,48 @@
+{
+  "network": "Studio Dev",
+  "chainId": 61997,
+  "rpc": "https://studio-next.genlayer.com/api",
+  "explorer": "https://explorer-studio-dev.genlayer.com",
+  "operation": "zero-value caller-spoof tripwire",
+  "target": "0xf853a3129f39c91489Ce3187f3cbb1497d4d2ac6",
+  "actualSigner": "0x2818B7BC95a05Df416E7c2e7F928e12FE4715cFD",
+  "claimedSender": "0xBd733BC56Ec4a55FA25C068B9306b0171335D199",
+  "valueGEN": "0",
+  "feeDepositGEN": "0.100000000000010352",
+  "before": {
+    "accounting": {
+      "received": "0 GEN",
+      "locked": "0 GEN",
+      "credits": "0 GEN",
+      "withdrawn": "0 GEN",
+      "invariant": true
+    },
+    "nativeGEN": "0"
+  },
+  "preparedAt": "2026-10-19T10:21:59.542Z",
+  "status": "SUBMITTED",
+  "hash": "0xf9aecebb95d481c048b6aa7342dcbbed83b119e9f98d0edc8ab595eda785a5b7",
+  "checkedAt": "2026-10-19T10:22:41.324Z",
+  "transportRejected": false,
+  "identityPreserved": true,
+  "unchanged": true,
+  "after": {
+    "accounting": {
+      "received": "0 GEN",
+      "locked": "0 GEN",
+      "credits": "0 GEN",
+      "withdrawn": "0 GEN",
+      "invariant": true
+    },
+    "nativeGEN": "0"
+  },
+  "receipt": {
+    "evmStatus": "0x1",
+    "status": "FINALIZED",
+    "execution": "ERROR",
+    "successful": false,
+    "caller": "0x2818B7BC95a05Df416E7c2e7F928e12FE4715cFD",
+    "origin": "0x2818B7BC95a05Df416E7c2e7F928e12FE4715cFD"
+  },
+  "passed": true
+}

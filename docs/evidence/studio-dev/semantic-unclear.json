@@ -1,0 +1,62 @@
+{
+  "checkedAt": "2026-10-19T10:34:37.261Z",
+  "book": {
+    "id": "archive-unclear-v1",
+    "version": "BC_V1",
+    "funder": "0xbd733bc56ec4a55fa25c068b9306b0171335d199",
+    "controller": "0xbd733bc56ec4a55fa25c068b9306b0171335d199",
+    "definition_digest": "d408621eb0518967c18d27dfe0aa967cfd5f429b9de1312bf67d471396201e3f",
+    "review_deadline": 1792406154,
+    "choice_deadline": 1792406454,
+    "phase": "RETRYABLE",
+    "attempts": 1,
+    "compiled": false,
+    "mask": 7,
+    "mask_records": 0,
+    "selected": "",
+    "received": "2 GEN",
+    "locked": "2 GEN",
+    "credits": "0 GEN",
+    "withdrawn": "0 GEN"
+  },
+  "attempt": {
+    "id": "archive-unclear-v1:1",
+    "requester": "0xbd733bc56ec4a55fa25c068b9306b0171335d199",
+    "timestamp": 1792406024,
+    "definition_digest": "d408621eb0518967c18d27dfe0aa967cfd5f429b9de1312bf67d471396201e3f",
+    "stage": "OK",
+    "cells": [
+      {
+        "id": "C0:B0",
+        "class": "UNCLEAR"
+      },
+      {
+        "id": "C0:B1",
+        "class": "NOT_TRIGGERED"
+      },
+      {
+        "id": "C0:B2",
+        "class": "TRIGGERED"
+      },
+      {
+        "id": "C1:B0",
+        "class": "NOT_TRIGGERED"
+      },
+      {
+        "id": "C1:B1",
+        "class": "TRIGGERED"
+      },
+      {
+        "id": "C1:B2",
+        "class": "TRIGGERED"
+      }
+    ]
+  },
+  "margin": {
+    "mask": 7,
+    "compiled": false,
+    "liability": [],
+    "required": "PENDING",
+    "locked": "2 GEN"
+  }
+}

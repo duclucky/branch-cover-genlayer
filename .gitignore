@@ -14,3 +14,6 @@ CLAUDE.md
 precheck-report.*
 grade-report.json
 artifacts/
+# Local authorization/discovery records are retained, but are not public artifacts.
+docs/evidence/studio-dev/role-preflight.json
+docs/evidence/studio-dev/authorized-demo-roles.json

@@ -1,0 +1,13 @@
+{
+  "recordedAt": "2026-10-19T10:42:45.974Z",
+  "command": "read(target, can_choose, [archive-pruned-v1, B0]) using LATEST_FINAL",
+  "network": "Studio Dev",
+  "chainId": 61997,
+  "address": "0xf853a3129f39c91489Ce3187f3cbb1497d4d2ac6",
+  "book": "archive-pruned-v1",
+  "phaseAtObservation": "COMPILED",
+  "maskAtObservation": 3,
+  "branch": "B0",
+  "result": true,
+  "scope": "Read performed after surplus withdrawal and rejected regrowth, before finalized choice. This historical result is not the final closed-book result."
+}

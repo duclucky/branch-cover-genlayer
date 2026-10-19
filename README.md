@@ -30,8 +30,10 @@ methods match the local source. Source commit
 `411579b2875acde10134d9549bcab87ccbd9c094`; SHA-256
 `576e16ac2e294ff5382bd4a2766d623f219a1e5f915082ef7cdd713ad68e2f82`.
 The Explorer transaction was independently opened and showed SUCCESS.
-Full consequential lifecycle execution is in progress. Public CI and final
-submission readiness remain pending their own checks.
+Five live books have reached CLOSED, with 13 GEN received and 13 GEN withdrawn,
+zero reserve, zero credits and zero native contract balance. A separate fresh
+read-only audit reconciles the operations, independent validators and all native
+exits. Public CI and final submission readiness remain pending their own checks.
 
 ## How consensus controls money
 
@@ -51,7 +53,8 @@ freezes the table. Removed branches can never regrow after surplus release.
 
 ## Worked example
 
-Illustrative expected semantics, pending the live book's completed proof:
+Real Studio Dev result for `archive-pruned-v1` (also reproduced in the separate
+joint-payment book):
 
 | Claim face | B0: read only | B1: publish only | B2: read and publish |
 |---|---|---|---|
@@ -64,6 +67,12 @@ domain-bound definition. Compilation requires 4 GEN. Removing B2 leaves
 mask 3 and requires 2 GEN, crediting 2 GEN surplus to the funder. Selecting
 B0 credits C0 exactly 2 GEN. Selecting B2 in a separate unpruned book credits
 both beneficiaries 2 GEN each. There is no priority, haircut or debt offset.
+
+[Actual compiled matrix](docs/evidence/studio-dev/semantic-main.json),
+[permanent pruning](docs/evidence/studio-dev/lifecycle-main-prune.json),
+[surplus delivery](docs/evidence/studio-dev/delivery-main-surplus.json),
+[beneficiary delivery](docs/evidence/studio-dev/delivery-main-payee.json),
+[canonical final books](docs/evidence/studio-dev/lifecycle-final-state.json).
 
 ## Interface and reuse
 
@@ -87,6 +96,8 @@ Views: get_book, get_claim, get_branch, get_matrix, get_margin, get_attempt,
 get_credit, get_accounting, can_choose, get_mask_history and get_policy.
 Repeated assent, same-mask pruning and already-closed closure are explicit
 no-ops in legal states. Configuration and compiled meaning are immutable.
+The branch feasible field records retained-menu membership; use can_choose
+for current phase/time eligibility, which becomes false on closure.
 
 Proposed consumers: a LangGraph workflow reservation adapter, an A2A procurement
 reservation coordinator and a DAOhaus contingent-budget module. Their shared
@@ -108,7 +119,7 @@ npm run check
 On Unix use `.venv/bin/python`. First run obtains the pinned GenVM bundle
 from official releases. `npm run check` runs recognized-class semantic lint,
 `gltest tests/`, metadata, temporal, adversarial, accounting, real SDK calldata
-and receipt tests. Latest completed result: **73 Python + 7 script tests pass**.
+and receipt tests. Latest completed result: **102 Python + 9 script tests pass**.
 
 Tests explicitly replay the validator, reject shape-valid wrong meaning,
 hash-valid wrong sender/book binding and payout injection, test every time
@@ -144,6 +155,9 @@ parent finality and zero credit alone never prove delivery.
 - [Deployment identity](docs/evidence/studio-dev/deployment.json)
 - [Caller authority smoke](docs/evidence/studio-dev/caller-spoof-smoke.json)
 - [Latest local check output](docs/evidence/local/check-latest.txt)
+- [Five-book final state](docs/evidence/studio-dev/lifecycle-final-state.json)
+- [Fresh source, consensus and native-delivery audit](docs/evidence/studio-dev/lifecycle-audit.json)
+- [Safety and reuse review](docs/REVIEW.md)
 
 No user-facing app, Vercel deployment, browser-wallet workflow, independent
 users or Portal acceptance is claimed.

@@ -1,0 +1,30 @@
+{
+  "network": "Studio Dev",
+  "chainId": 61997,
+  "rpc": "https://studio-next.genlayer.com/api",
+  "explorer": "https://explorer-studio-dev.genlayer.com",
+  "operation": "fund beneficiary0",
+  "from": "0xBd733BC56Ec4a55FA25C068B9306b0171335D199",
+  "to": "0x2818B7BC95a05Df416E7c2e7F928e12FE4715cFD",
+  "valueGEN": "1",
+  "before": {
+    "sourceGEN": "28.171024801250072756",
+    "recipientGEN": "0"
+  },
+  "preparedAt": "2026-10-19T10:16:43.693Z",
+  "status": "CONFIRMED_NATIVE",
+  "hash": "0xc0857c874b8ac2ff1d20d37a36cc8b881aa5f4abced58bbc5037838413dd8251",
+  "confirmedObservedAt": "2026-10-19T10:16:49.495Z",
+  "after": {
+    "sourceGEN": "27.171024801250072756",
+    "recipientGEN": "1"
+  },
+  "recipientIncreaseGEN": "1",
+  "receipt": {
+    "status": "0x1",
+    "transactionHash": "0xc0857c874b8ac2ff1d20d37a36cc8b881aa5f4abced58bbc5037838413dd8251",
+    "blockNumber": "0x0",
+    "from": "0xBd733BC56Ec4a55FA25C068B9306b0171335D199",
+    "to": "0x2818b7bc95a05df416e7c2e7f928e12fe4715cfd"
+  }
+}

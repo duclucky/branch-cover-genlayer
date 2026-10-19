@@ -1,0 +1,71 @@
+{
+  "at": "2026-10-19T10:36:47.563Z",
+  "network": "Studio Dev",
+  "chainId": 61997,
+  "reviews": [
+    {
+      "case": "expiry",
+      "hash": "0x2424e645459c937fc4cc21027abedeaf3627aa95d09e448c453beca4a9d0eed5",
+      "phase": "COMPILED",
+      "cells": [
+        {
+          "id": "C0:B0",
+          "class": "TRIGGERED"
+        },
+        {
+          "id": "C0:B1",
+          "class": "NOT_TRIGGERED"
+        },
+        {
+          "id": "C0:B2",
+          "class": "TRIGGERED"
+        },
+        {
+          "id": "C1:B0",
+          "class": "NOT_TRIGGERED"
+        },
+        {
+          "id": "C1:B1",
+          "class": "TRIGGERED"
+        },
+        {
+          "id": "C1:B2",
+          "class": "TRIGGERED"
+        }
+      ],
+      "successfulIndependentValidators": 1
+    },
+    {
+      "case": "unclear",
+      "hash": "0xeac2836591936f0a5afb2c9226187c442574716c2934e5c179534498fd2aca3c",
+      "phase": "RETRYABLE",
+      "cells": [
+        {
+          "id": "C0:B0",
+          "class": "UNCLEAR"
+        },
+        {
+          "id": "C0:B1",
+          "class": "NOT_TRIGGERED"
+        },
+        {
+          "id": "C0:B2",
+          "class": "TRIGGERED"
+        },
+        {
+          "id": "C1:B0",
+          "class": "NOT_TRIGGERED"
+        },
+        {
+          "id": "C1:B1",
+          "class": "TRIGGERED"
+        },
+        {
+          "id": "C1:B2",
+          "class": "TRIGGERED"
+        }
+      ],
+      "successfulIndependentValidators": 1
+    }
+  ]
+}

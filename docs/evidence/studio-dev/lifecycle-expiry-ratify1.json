@@ -1,0 +1,100 @@
+{
+  "network": "Studio Dev",
+  "chainId": 61997,
+  "rpc": "https://studio-next.genlayer.com/api",
+  "explorer": "https://explorer-studio-dev.genlayer.com/transactions/0x6445127c1c246deb970912627fbd46a3ffa2d5ea5ba456a35ed64c336839daae",
+  "identity": {
+    "network": "Studio Dev",
+    "chainId": 61997,
+    "sourceCommit": "23597d29d500c5ea7ce49737429f23b3a8383370",
+    "sourceSha256": "576e16ac2e294ff5382bd4a2766d623f219a1e5f915082ef7cdd713ad68e2f82",
+    "runner": "5jycge4q8k23462jtb0b9fyey1s9qz928sz2nbrd9mg4sxqg2qng",
+    "api": "v0.3.0",
+    "genvm": "v0.6.0-rc5",
+    "sdk": "2.0.0-rc.1"
+  },
+  "target": "0xf853a3129f39c91489Ce3187f3cbb1497d4d2ac6",
+  "operation": "ratify",
+  "actor": "0x2818B7BC95a05Df416E7c2e7F928e12FE4715cFD",
+  "args": [
+    "archive-no-choice-v1",
+    "ff59563dc6efc851f380701e1b4f9dfc3b23691937b17871261bd84ba2d0f518"
+  ],
+  "valueGEN": "0",
+  "feeDepositGEN": "0.000378490800010352",
+  "expectedSuccess": true,
+  "before": {
+    "observedAt": "2026-10-19T10:27:11.047Z",
+    "book": {
+      "id": "archive-no-choice-v1",
+      "version": "BC_V1",
+      "funder": "0xbd733bc56ec4a55fa25c068b9306b0171335d199",
+      "controller": "0xbd733bc56ec4a55fa25c068b9306b0171335d199",
+      "definition_digest": "ff59563dc6efc851f380701e1b4f9dfc3b23691937b17871261bd84ba2d0f518",
+      "review_deadline": 1792405878,
+      "choice_deadline": 1792406178,
+      "phase": "RATIFYING",
+      "attempts": 0,
+      "compiled": false,
+      "mask": 7,
+      "mask_records": 0,
+      "selected": "",
+      "received": "2 GEN",
+      "locked": "2 GEN",
+      "credits": "0 GEN",
+      "withdrawn": "0 GEN"
+    },
+    "accounting": {
+      "received": "2 GEN",
+      "locked": "2 GEN",
+      "credits": "0 GEN",
+      "withdrawn": "0 GEN",
+      "invariant": true
+    },
+    "nativeContractGEN": "2"
+  },
+  "preparedAt": "2026-10-19T10:27:14.952Z",
+  "status": "FINALIZED",
+  "hash": "0x6445127c1c246deb970912627fbd46a3ffa2d5ea5ba456a35ed64c336839daae",
+  "after": {
+    "observedAt": "2026-10-19T10:27:59.725Z",
+    "book": {
+      "id": "archive-no-choice-v1",
+      "version": "BC_V1",
+      "funder": "0xbd733bc56ec4a55fa25c068b9306b0171335d199",
+      "controller": "0xbd733bc56ec4a55fa25c068b9306b0171335d199",
+      "definition_digest": "ff59563dc6efc851f380701e1b4f9dfc3b23691937b17871261bd84ba2d0f518",
+      "review_deadline": 1792405878,
+      "choice_deadline": 1792406178,
+      "phase": "RATIFYING",
+      "attempts": 0,
+      "compiled": false,
+      "mask": 7,
+      "mask_records": 0,
+      "selected": "",
+      "received": "2 GEN",
+      "locked": "2 GEN",
+      "credits": "0 GEN",
+      "withdrawn": "0 GEN"
+    },
+    "accounting": {
+      "received": "2 GEN",
+      "locked": "2 GEN",
+      "credits": "0 GEN",
+      "withdrawn": "0 GEN",
+      "invariant": true
+    },
+    "nativeContractGEN": "2"
+  },
+  "receipt": {
+    "status": "FINALIZED",
+    "execution": "SUCCESS",
+    "successful": true,
+    "hash": "0x6445127c1c246deb970912627fbd46a3ffa2d5ea5ba456a35ed64c336839daae",
+    "from": "0x2818b7bc95a05df416e7c2e7f928e12fe4715cfd",
+    "to": "0xf853a3129f39c91489ce3187f3cbb1497d4d2ac6"
+  },
+  "executionResult": "SUCCESS",
+  "finalizedObservedAt": "2026-10-19T10:28:01.731Z",
+  "verified": true
+}

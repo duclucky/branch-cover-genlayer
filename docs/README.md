@@ -3,7 +3,7 @@
 ## Identity
 
 IDEA-047 / BranchCover / branch-cover / Intelligent Contracts.
-Status: SELECTED; all14 PASS_ADMISSION, Phase2 viability verified.
+Status: IMPLEMENTED; all14 PASS_ADMISSION; Phase2 viability and Phase7 lifecycle PASS_EXECUTION.
 Repository: local child repository, public URL pending actual publication.
 Target: Studio Dev61997, https://studio-next.genlayer.com/api .
 API: v0.3.0; pinned runner5jycge4q8k23462jtb0b9fyey1s9qz928sz2nbrd9mg4sxqg2qng,
@@ -86,7 +86,7 @@ Search absence is not proof that nobody globally has built a related system.
 | 1 | Replacement | PASS_ADMISSION: a signed book/backend can compute max once it chooses the bits, but cannot preserve independent validator judgment of who can claim under every branch before GEN is unlocked |
 | 2 | Judgment | PASS_ADMISSION: entailment, exclusion, conjunction, negation and optional/underspecified triggers cannot be reduced to amount arithmetic or text equality; actual stability is tested next |
 | 3 | Evidence availability | PASS_ADMISSION: exact bounded canonical terms are passed by runtime; required inputs/assents/IDs/digests can be checked before any model call; fixed public context has a separate bounded source probe; target generic schema/constructor/read controls already succeed |
-| 4 | Evidence authenticity | PASS_ADMISSION: complete authority rows above bind actual payer, both beneficiary assents and controller transitions; no party-hosted receipt can prove an external event or replace the selection write; invalid binding has no consequence |
+| 4 | Evidence authenticity | PASS_ADMISSION: complete authority rows in the Evidence Authority Matrix bind actual payer, both beneficiary assents and controller transitions; no party-hosted receipt can prove an external event or replace the selection write; invalid binding has no consequence |
 | 5 | Equivalence | PASS_ADMISSION: exact six-cell three-class semantics and derived liability vector; independent substantive replay, reason wording excluded, invalid output rejected before margin changes |
 | 6 | Consequence | PASS_ADMISSION: compiled table directly sets locked reserve, permanently pruned branches release exact excess and choice pays all activated faces, code-owned amounts/payees |
 | 7 | Adversarial | PASS_ADMISSION: funder benefits from narrower activation/earlier release while beneficiaries benefit from broader activation; neither supplies trusted classification; controller authority is co-ratified |
@@ -95,12 +95,12 @@ Search absence is not proof that nobody globally has built a related system.
 | 10 | Contract count | PASS_ADMISSION: one independently justified owner of margin, contingent claims and settlement; no pass-through consumer |
 | 11 | Differentiation | PASS_ADMISSION: seven-field comparison above counts at most three material matches with any nearest entry; reserve exposure before choice and permanent scenario elimination are absent from those mechanisms |
 | 12 | Claim-to-code | PASS_ADMISSION: every material claim has planned method/state/view, exact adversarial test and real-network evidence path in the matrix above |
-| 13 | Full lifecycle | PASS_ADMISSION / PENDING_EXECUTION: complete base/prune/choice, joint-claim payment, compiled timeout, partial/unsigned/unverifiable recovery, own withdrawal and zero closure cases are specified; no execution is claimed |
+| 13 | Full lifecycle | PASS_ADMISSION / PASS_EXECUTION: five live books CLOSED; 39 operations, four semantic reviews, seven proven native exits; 13 GEN in/out and zero reserve, credit and native balance; see lifecycle-audit.json |
 | 14 | Scope honesty | PASS_ADMISSION: only protocol-created conditional fee rights and actual onchain selection; no delivery/identity/legal debt/market-price proof, guaranteed model accuracy, external adoption, finality or public repo claim |
 
-All fourteen are admission design findings, not a completed Phase2 exit: the
-frozen viability probe must still pass. Implementation remains held until that
-exit. No grader, label, authority rule or expected test will be weakened.
+The matrix records the pre-code admission reasoning. The frozen viability probe
+subsequently passed; completed live execution is evidenced separately below.
+No grader, label, authority rule or expected test has been weakened.
 
 ## Actors, roles and incentives
 
@@ -249,7 +249,7 @@ must be verified before implementation, not guessed from this design.
 |---|---|---|---|---|---|---|---|---|
 | create_book, payable | Funder runtime sender | Absent unique ID | Existing ID; invalid roles/menu/amounts | now < review_deadline < choice_deadline, bounded duration | Existing ID rejects | Positive whole-GEN deposit <= full face sum; actual payer locked | book, claims, branches, accounting | existing ID, bad address, zero/excess value, invalid bounds, source injection cannot change configured payees |
 | top_up, payable | Actual funder | DRAFT underfunded | Fully funded, ratified, compiled, terminal | now < review_deadline | Duplicate beyond required funding rejects | Add actual value without exceeding full face sum | book, accounting | wrong caller/state; zero/excess; deadline -1/equal/+1 stale phase; unchanged balances |
-| ratify | Each exact beneficiary | Fully funded RATIFYING | Partial funding, compiled, terminal | now < review_deadline | Same valid digest/role assent no-op; no new rights or time | No credit or money movement; both assents enable READY | book | wrong role/book/digest/version; replay; stale phase time boundaries; value rejects |
+| ratify | Each exact beneficiary | Fully funded RATIFYING or READY | Partial funding, compiled, terminal | now < review_deadline | Same valid digest/role assent no-op; no new rights or time | No credit or money movement; both assents enable READY | book | wrong role/book/digest/version; replay; stale phase time boundaries; value rejects |
 | compile_book | Funder or named beneficiary | READY or RETRYABLE, <3 attempts | Missing assent, partial funding, already compiled, terminal | now < review_deadline | Successful compilation cannot repeat; retry gets new append-only attempt | Complete matrix freezes; only proven surplus becomes funder credit; UNCLEAR leaves all reserve/credits unchanged except retry record | matrix, margin, attempt, book, credits, accounting | malicious leader meaning mismatch; extra/missing/duplicate cells; unknown enum; unknown coverage; forged objective/version; expired or exhausted attempt |
 | prune_branches | Fixed controller | COMPILED | Pending, settled, expired, closed | now < choice_deadline | Same valid set no-op; any regrowth rejects | Reserve drops by deterministic nonnegative difference; exact funder credit | margin, branch history, book, credit, accounting | wrong caller; empty/extra/regrowing mask; stale phase boundaries; repeat cannot double credit; terminal rejects |
 | choose_branch | Fixed controller | COMPILED with branch still feasible | Pending, removed branch, settled, expired, closed | now < choice_deadline | Repeated or conflicting choice rejects | Pay activated claims once in full; unused reserve to actual funder; reserve ->0 | book, margin, credits, accounting | wrong actor; removed/unknown branch; exact deadline; already selected/closed; no overpay, underfund or double allocation |
@@ -335,21 +335,22 @@ is invoked and documented. Parent finality/zero credit is not transfer proof.
 ## Claim-to-code matrix and executable lifecycle acceptance
 
 
-| Claim | Planned method/state | View/read | Required test | Selected-network proof still required |
+| Claim | Contract method/state | View/read | Test | Network evidence |
 |---|---|---|---|---|
-| Full-definition consent precedes compilation | create/top_up/ratify; immutable book | book/claim/branch | wrong actor/digest/domain/version and partial funding leave accounting unchanged | Real role transactions and canonical assents |
-| Validators compare trigger meaning | compile; six-cell append-only attempt | matrix/attempt | malicious leader flips a valid-looking cell; independent replay rejects; rationale paraphrase accepted | Real meaningful review and finalized consensus receipt |
-| Reserve covers every remaining branch | deterministic P and max | margin | all 2^6 complete binary matrices and all seven nonempty masks; reserve >= every P; no model amounts | Canonical vector and reserve before/after classification |
-| Permanent pruning releases only safe excess | prune; monotone mask/history | margin/book/credit | proper-subset, regrowth, empty set, wrong actor, repeat and equality deadline | High-liability branch removed; 2 GEN surplus withdrawn; attempted regrowth rejected |
-| One choice pays all triggered promises exactly once | choose; terminal flag | book/matrix/credits | every branch/trigger pattern, duplicate/removed/late choice, amount/recipient injection | Joint branch pays two 2 GEN credits; alternative branch pays exactly one; canonical reads |
-| Every incomplete/no-choice path recovers | recover; EXPIRED | book/accounting | partial funding, non-ratification, UNCLEAR/invalid output, compiled timeout; stale-phase boundaries and wrong actors | At least compiled expiry and unfinished-book recovery with own exits |
-| Own GEN credits really leave the contract | withdraw_credit; book/global ledger | credit/accounting/native balances | EOA/EVM boundary, metadata, duplicate/zero/excess and both receipt shapes | Finalized native child plus exact contract decrease and recipient evidence for each exit |
-| Zero-liability closure | close_book; CLOSED | book/accounting | reject any reserve or credit; duplicate closed no-op | All demonstrated books CLOSED and global/native balance reconciled |
+| Full-definition consent precedes compilation | create_book/top_up/ratify; immutable book | get_book/get_claim/get_branch | wrong_book_digest_and_actor; funder_only_topup_duplicate_book_and_ratification_idempotency; hash_valid_replay_and_fabricated_assent | lifecycle-main-ratify1.json and lifecycle-main-ratify2.json; caller-spoof-smoke.json |
+| Validators compare trigger meaning | compile_book; six-cell append-only attempt | get_matrix/get_attempt | real_validator_replay_compares_meaning_not_reason; swapped_beneficiaries_with_identical_liability_totals_are_not_equivalent; malicious leader rejection | lifecycle-audit.json semantics: four finalized reviews and completed independent agreeing validator executions |
+| Reserve covers every remaining branch | deterministic liabilities and maximum | get_margin | all_64_semantic_matrices_all_masks_and_subsets_cover_liability | semantic-main.json margin; lifecycle-audit.json books/maskHistory/margin |
+| Permanent pruning releases only safe excess | prune_branches; monotone mask/history | get_margin/get_mask_history/get_credit | core_prune_withdraw_choice; prune_duplicate_and_removed_branch; invalid masks; stale-phase boundaries | lifecycle-main-prune.json; delivery-main-surplus.json; lifecycle-main-regrowth-rejected.json |
+| One choice pays every triggered face once | choose_branch; terminal flag | get_book/get_claim/get_matrix/get_credit | B0/B1/B2 and all verdict mappings; identical-total beneficiary swap; duplicate and closed guards | lifecycle-main-choice.json; lifecycle-joint-choice.json; delivery-main-payee.json; delivery-joint-payee0.json and delivery-joint-payee1.json |
+| Incomplete and unchosen books recover | recover; EXPIRED | get_book/get_accounting/get_credit | every stale-phase time gate; fully_funded_uncompiled_recovery_boundaries; unclear attempts; compiled expiry | lifecycle-partial-recover.json; lifecycle-unclear-recover.json; lifecycle-expiry-recover.json; corresponding delivery-*-refund0.json |
+| Own credits actually leave the contract | withdraw_credit; own ledger then EVM message | get_credit/get_accounting/native balance | withdrawal_debit_and_native_message_boundary; invalid amounts; receipt parser and external delivery rejection tests | lifecycle-audit.json deliveries: seven exact native decreases and delivered recipient receipts, 13 GEN total |
+| Closure has zero remaining liability | close_book; CLOSED | get_book/get_accounting | core and terminal duplicate closure; new_book_after_zero_closure_preserves_old_entity_and_global_conservation | lifecycle-final-state.json and fresh lifecycle-audit.json: five CLOSED books; zero reserve, credits and native balance |
 
-Exact local test totals will come from execution, not this design. Required
-commands after implementation remain genvm-lint, gltest tests/, npm run check,
-and unchanged full objective precheck with real project and address. No frontend
-is added to satisfy generic checks.
+All referenced files are under docs/evidence/studio-dev/. Local command output
+is under docs/evidence/local/check-latest.txt. Recovery in DRAFT, RATIFYING,
+READY, RETRYABLE and COMPILED is tested at the boundary this architecture owns.
+Real network recovery includes partial funding, semantic UNCLEAR and compiled
+no-choice expiry. No external-work or browser workflow is asserted.
 
 ## Reusable integration surface
 
@@ -400,16 +401,25 @@ exact contract-balance decrease and recipient evidence. No fake explorer links.
   payout, expiry and partial/unresolved recovery -> own exits ->zero closure.
 - Exact public allowlist/history/secret hygiene, meaningful commits and green CI.
 - Honest review, unchanged objective grader NO BLOCKER with real deployed address.
-- Final master reread item ledger and copy-ready Portal description <1000 chars.
+- Final acceptance audit and copy-ready Portal description <1000 chars.
 - No app/Vercel/browser workflow claim. Owner alone completes Portal Submit.
 
 ## Evidence status and honest limitations
 
-Design admission PASS; two unsigned Studio Dev feasibility simulations SUCCESS,
-36/36 frozen class observations match. Arithmetic reference448 reserve,768 subset,
-768 choice cases pass. These are not product tests or finalized consensus and
-are not a guarantee of future semantic accuracy. Production, deployment, financial
-flows, CI, grader and submission acceptance remain pending until actual evidence.
+All fourteen design gates passed before implementation. Two unsigned viability
+runs produced 36/36 prelocked expected cells. Production semantic lint and
+local adversarial/metadata tests pass. Studio Dev deployment is FINALIZED /
+Result: SUCCESS with matching source and schema. Five real books are CLOSED;
+39 operations include 37 successes and two intentional unchanged-state rejects.
+Four semantic reviews have completed independent agreeing validator executions.
+Seven external EVM delivery proofs reconcile 13 GEN withdrawn against exact
+native contract decreases; reserve, credits and native balance are zero.
+See lifecycle-audit.json for fresh canonical reads and receipt projections.
+
+These are quorum outcomes, not a claim of unanimous or universally accurate
+models. Proposed downstream adapters and independent user adoption remain
+unimplemented. Repository CI, the objective acceptance command and Portal
+packaging require their separate final evidence; no Portal submission is made.
 
 ## Adoption path and kill criteria
 

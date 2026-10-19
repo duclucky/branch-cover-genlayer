@@ -1,0 +1,109 @@
+{
+  "at": "2026-10-19T10:53:51.208Z",
+  "command": "gen_getContractSchema; explicit method/payable/readonly projection",
+  "network": "Studio Dev",
+  "chainId": 61997,
+  "address": "0xf853a3129f39c91489Ce3187f3cbb1497d4d2ac6",
+  "methods": [
+    {
+      "name": "can_choose",
+      "payable": false,
+      "readonly": true
+    },
+    {
+      "name": "choose_branch",
+      "payable": false,
+      "readonly": false
+    },
+    {
+      "name": "close_book",
+      "payable": false,
+      "readonly": false
+    },
+    {
+      "name": "compile_book",
+      "payable": false,
+      "readonly": false
+    },
+    {
+      "name": "create_book",
+      "payable": true,
+      "readonly": false
+    },
+    {
+      "name": "get_accounting",
+      "payable": false,
+      "readonly": true
+    },
+    {
+      "name": "get_attempt",
+      "payable": false,
+      "readonly": true
+    },
+    {
+      "name": "get_book",
+      "payable": false,
+      "readonly": true
+    },
+    {
+      "name": "get_branch",
+      "payable": false,
+      "readonly": true
+    },
+    {
+      "name": "get_claim",
+      "payable": false,
+      "readonly": true
+    },
+    {
+      "name": "get_credit",
+      "payable": false,
+      "readonly": true
+    },
+    {
+      "name": "get_margin",
+      "payable": false,
+      "readonly": true
+    },
+    {
+      "name": "get_mask_history",
+      "payable": false,
+      "readonly": true
+    },
+    {
+      "name": "get_matrix",
+      "payable": false,
+      "readonly": true
+    },
+    {
+      "name": "get_policy",
+      "payable": false,
+      "readonly": true
+    },
+    {
+      "name": "prune_branches",
+      "payable": false,
+      "readonly": false
+    },
+    {
+      "name": "ratify",
+      "payable": false,
+      "readonly": false
+    },
+    {
+      "name": "recover",
+      "payable": false,
+      "readonly": false
+    },
+    {
+      "name": "top_up",
+      "payable": true,
+      "readonly": false
+    },
+    {
+      "name": "withdraw_credit",
+      "payable": false,
+      "readonly": false
+    }
+  ]
+}
