@@ -419,4 +419,3 @@ pruning already belongs to V1 and cannot count again. Kill/promote no revision
 whose unknown/malformed/provenance-failed verdict frees GEN, whose removed branch
 can reappear, whose active branch exceeds reserve, or whose corpus is unstable.
 No source/label/grader weakening can rescue a failed acceptance case.
-

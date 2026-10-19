@@ -1,1 +1,3 @@
 * text=auto eol=lf
+# Raw origin bytes are digest-bound; never normalize the fetched fixture.
+tests/fixtures/odrl-context.html binary
