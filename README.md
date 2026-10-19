@@ -33,7 +33,9 @@ The Explorer transaction was independently opened and showed SUCCESS.
 Five live books have reached CLOSED, with 13 GEN received and 13 GEN withdrawn,
 zero reserve, zero credits and zero native contract balance. A separate fresh
 read-only audit reconciles the operations, independent validators and all native
-exits. Public CI and final submission readiness remain pending their own checks.
+exits. [Source/test CI](https://github.com/duclucky/branch-cover-genlayer/actions/runs/39243189401)
+is SUCCESS for the published code/test commit. The unchanged objective checker
+reports 0 BLOCKER and 0 WARN; see the acceptance evidence and Portal packet below.
 
 ## How consensus controls money
 
@@ -158,6 +160,17 @@ parent finality and zero credit alone never prove delivery.
 - [Five-book final state](docs/evidence/studio-dev/lifecycle-final-state.json)
 - [Fresh source, consensus and native-delivery audit](docs/evidence/studio-dev/lifecycle-audit.json)
 - [Safety and reuse review](docs/REVIEW.md)
+- [Successful source/test CI](docs/evidence/local/ci-source.json)
+- [Unchanged objective acceptance result](docs/evidence/local/acceptance-summary.json)
+- [Copy-ready Portal fields](docs/SUBMISSION.md)
 
 No user-facing app, Vercel deployment, browser-wallet workflow, independent
 users or Portal acceptance is claimed.
+
+The legacy grader heuristic still prints MISSING custom validator because it
+matches only a callback named validator_fn or literal run_nondet(. The deployed
+v0.3 code uses the required sandboxed run_nondet_default and a substantive custom
+validator. Direct replay, the equal-total beneficiary-swap tripwire, semantic lint
+and real independent agreeing executions prove it. No checker or contract was
+changed to hide that heuristic gap. The result is a readiness check, not an
+accepted Portal contribution or an official points award.

@@ -1,0 +1,32 @@
+{
+  "command": "genlayer-precheck.ps1 -Project branch-cover -Category intelligent-contracts -RepoUrl https://github.com/duclucky/branch-cover-genlayer -ExplorerUrl https://explorer-studio-dev.genlayer.com/address/0xf853a3129f39c91489Ce3187f3cbb1497d4d2ac6 -NotesFile .codex/submission-description.txt",
+  "exitCode": 0,
+  "staticBlockers": 0,
+  "staticWarnings": 0,
+  "autoVerified": 7,
+  "graderSourceUnchanged": true,
+  "graderSourceSha256": {
+    "genlayer-precheck.ps1": "0e90ae93c72c9464b4b995db6896cf08ea8f8d14b66a847156012f830e896746",
+    "precheck_static.py": "e67ae6076ce48d5cc4d3179138f7dacb514792ea21d0a48ab5b4d93222263f44",
+    "genlayer_grade.py": "b80fd0a80f5040865ec8f7801bca1adbe44ca1a617e314cf4385fe0e24a7db59",
+    "RUBRIC.md": "5ddeeb7810f5669c66a38ce1438bba6ca802c02bdf1b282e9d11d5475414e624"
+  },
+  "descriptionCharacters": 827,
+  "actualGeneratedReportExcerpts": [
+    "Summary: 0 BLOCKER, 0 WARN, 7 auto-verified OK",
+    "[PASS   ] real GenLayer contract present",
+    "[PASS   ] uses consensus (not deterministic-only / not fake off-chain)",
+    "[PASS   ] not a renamed boilerplate / empty fork",
+    "[PASS   ] repository builds & tests pass",
+    "- MISSING: custom validator (run_nondet) rather than strict_eq of a blob",
+    "[OK ] GitHub repo OR Studio contract URL provided",
+    "[OK ] deployed explorer address URL (valid pattern)",
+    "[OK ] submission notes <= 1000 chars (is 827)",
+    "VERDICT: GATE OK - address MISSING items + confirm the manual (!) criteria, then submit"
+  ],
+  "observedDynamicConsoleExcerpts": [
+    "npm run check: PASS",
+    "gltest: PASS"
+  ],
+  "manualReconciliation": "Unchanged detector accepts only def validator_fn or literal run_nondet(. It misses the v0.3 sandboxed run_nondet_default custom validator. Actual source, direct replay, same-total beneficiary swap rejection, semantic lint and four real independent-validator reviews prove the required behavior. Legacy Studionet wording does not override verified D1 Studio Dev 61997."
+}

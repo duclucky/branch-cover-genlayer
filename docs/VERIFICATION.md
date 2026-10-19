@@ -67,8 +67,9 @@ The bounded caller-spoof smoke preserved the actual signer/origin and rejected
 the operation with unchanged zero accounting. The full lifecycle and fresh
 read-only audit pass: five CLOSED books, 39 operations (37 successes and two
 intentional rejects), four semantic reviews, seven native exits and 13 GEN in/out
-with zero outstanding accounting and native balance. Repository/CI, Portal
-packaging and the final objective gate still require their separate proof.
+with zero outstanding accounting and native balance. The public repository and
+source/test CI are verified. The unchanged objective checker exits 0 with no
+BLOCKER or WARN; the Portal packet is complete. Owner submission remains external.
 
 The first unsigned create-book fee simulation rejected raw strings supplied to
 Address-typed arguments. A real SDK encode/decode regression failed, then passed
@@ -86,3 +87,11 @@ alone still cannot count as completed agreement. The final audit found two, two,
 two and three completed independent agreeing executions across the four reviews.
 Protocol vote maps also include dissent/idle entries. No unanimity or unknown
 cause of dissent is claimed. Contract source is unchanged.
+
+Objective acceptance ran with the real project, intelligent-contracts category,
+public GitHub URL, Studio Dev address Explorer and 827-character description.
+It returned exit 0, 0 BLOCKER, 0 WARN, npm check PASS and gltest PASS. Grader source
+checksums before/after are identical. Its legacy custom-validator heuristic checks
+only a specific callback name or run_nondet( and therefore misses the verified
+v0.3 run_nondet_default form. That manual reconciliation is recorded openly in
+acceptance-summary.json; no alias, unsafe API or grader modification was added.

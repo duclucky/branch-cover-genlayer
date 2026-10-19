@@ -1,0 +1,18 @@
+{
+  "command": "gh run view 39243189401 --json and allowlisted --log excerpts",
+  "runId": 39243189401,
+  "conclusion": "success",
+  "headSha": "3cebf5e3855b3c84c1a7e5d91a38119dcd1361c9",
+  "status": "completed",
+  "url": "https://github.com/duclucky/branch-cover-genlayer/actions/runs/39243189401",
+  "outputExcerpts": [
+    "2026-10-19T11:17:40.5428195Z   Contract: BranchCoverContract",
+    "2026-10-19T11:17:40.5428421Z   Methods: 20 (11 view, 9 write)",
+    "2026-10-19T11:18:11.0309419Z ============================ 102 passed in 28.27s =============================",
+    "2026-10-19T11:18:12.4359034Z # tests 9",
+    "2026-10-19T11:18:12.4359568Z # pass 9",
+    "2026-10-19T11:18:12.4470733Z BRANCHCOVER_CHECK_PASS: recognized contract + gltest safety/semantic/metadata tests + script tests."
+  ],
+  "sourceSha256": "576e16ac2e294ff5382bd4a2766d623f219a1e5f915082ef7cdd713ad68e2f82",
+  "scope": "Successful source/test commit; subsequent packaging changes are documentation only."
+}

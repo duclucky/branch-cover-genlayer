@@ -4,7 +4,7 @@
 
 IDEA-047 / BranchCover / branch-cover / Intelligent Contracts.
 Status: IMPLEMENTED; all14 PASS_ADMISSION; Phase2 viability and Phase7 lifecycle PASS_EXECUTION.
-Repository: local child repository, public URL pending actual publication.
+Repository: https://github.com/duclucky/branch-cover-genlayer (public).
 Target: Studio Dev61997, https://studio-next.genlayer.com/api .
 API: v0.3.0; pinned runner5jycge4q8k23462jtb0b9fyey1s9qz928sz2nbrd9mg4sxqg2qng,
 verified in current unsigned constructor/schema controls. Exactly one product
@@ -418,8 +418,9 @@ See lifecycle-audit.json for fresh canonical reads and receipt projections.
 
 These are quorum outcomes, not a claim of unanimous or universally accurate
 models. Proposed downstream adapters and independent user adoption remain
-unimplemented. Repository CI, the objective acceptance command and Portal
-packaging require their separate final evidence; no Portal submission is made.
+unimplemented. The public repository, successful source/test CI, unchanged objective acceptance
+(0 BLOCKER, 0 WARN) and copy-ready Portal packet now have separate evidence.
+No Portal submission is made; account-only form/quest requirements need the owner.
 
 ## Adoption path and kill criteria
 
